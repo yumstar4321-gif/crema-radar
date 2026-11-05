@@ -5,11 +5,11 @@
 site:
   name: "Crema Radar"                       # rename freely
   tagline: "Home coffee gear deals on Amazon Australia, checked daily"
-  url: "https://yumstar4321-gif.github.io/crema-radar"   # your live address, no trailing slash
+  url: "https://cremaradar.au"              # your live address, no trailing slash
   # Once you own a domain, put it here (no https://, no trailing slash) AND
   # change url above to "https://yourdomain". The build writes a CNAME file so
   # GitHub Pages keeps the domain through every automated publish.
-  custom_domain: ""
+  custom_domain: "cremaradar.au"
   locale: "en_AU"
   timezone: "Australia/Sydney"
   contact_email: ""                         # optional, shown on the About page
