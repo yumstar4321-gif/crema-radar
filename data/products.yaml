@@ -291,3 +291,111 @@
   asin: ""
   search: "Timemore Black Mirror scale"
   blurb: "Timer scale for weighing doses and shots."
+
+- id: milk-jug-stainless
+  name: "Stainless steel milk jug (350ml)"
+  brand: Generic
+  category: accessories
+  shape: jug
+  asin: ""
+  search: "stainless steel milk frothing jug 350ml"
+  blurb: "The right size jug is why café milk looks better than yours."
+
+- id: tamper-54mm
+  name: "54mm tamper (Breville machines)"
+  brand: Generic
+  category: accessories
+  shape: tamper
+  asin: ""
+  search: "54mm coffee tamper stainless"
+  blurb: "Breville baskets are 54mm. The plastic tamper in the box is not."
+
+- id: tamper-58mm
+  name: "58mm tamper (most other machines)"
+  brand: Generic
+  category: accessories
+  shape: tamper
+  asin: ""
+  search: "58mm coffee tamper stainless"
+  blurb: "The standard size for Gaggia, De'Longhi and commercial baskets."
+
+- id: wdt-tool
+  name: "WDT distribution tool"
+  brand: Generic
+  category: accessories
+  shape: tamper
+  asin: ""
+  search: "WDT coffee distribution tool needle"
+  blurb: "Breaks up clumps before tamping. Fixes uneven, sour shots."
+
+- id: knock-box
+  name: "Espresso knock box"
+  brand: Generic
+  category: accessories
+  shape: scale
+  asin: ""
+  search: "espresso knock box coffee"
+  blurb: "Stops you banging spent pucks into the kitchen bin."
+
+- id: espresso-cleaning-tablets
+  name: "Espresso machine cleaning tablets"
+  brand: Generic
+  category: accessories
+  shape: scale
+  asin: ""
+  search: "espresso machine cleaning tablets backflush"
+  blurb: "Stale coffee oils turn every shot bitter. Cheapest fix there is."
+
+- id: descaler
+  name: "Coffee machine descaler"
+  brand: Generic
+  category: accessories
+  shape: scale
+  asin: ""
+  search: "coffee machine descaler liquid"
+  blurb: "Hard water kills machines. Descaling is the warranty-saving habit."
+
+- id: puck-screen
+  name: "Puck screen (espresso)"
+  brand: Generic
+  category: accessories
+  shape: scale
+  asin: ""
+  search: "espresso puck screen 54mm 58mm"
+  blurb: "Keeps the group head clean and evens out the water flow."
+
+- id: bottomless-portafilter
+  name: "Bottomless portafilter"
+  brand: Generic
+  category: accessories
+  shape: tamper
+  asin: ""
+  search: "bottomless naked portafilter 54mm 58mm"
+  blurb: "Shows you exactly where your extraction is going wrong."
+
+- id: aeropress
+  name: "AeroPress coffee maker"
+  brand: AeroPress
+  category: accessories
+  shape: brewer
+  asin: ""
+  search: "AeroPress coffee maker original"
+  blurb: "Near-unbreakable, brews in two minutes, washes up in ten seconds."
+
+- id: hario-v60
+  name: "Hario V60 dripper and filters"
+  brand: Hario
+  category: accessories
+  shape: brewer
+  asin: ""
+  search: "Hario V60 dripper 02 filters"
+  blurb: "The cheapest way to make genuinely good filter coffee."
+
+- id: bean-canister
+  name: "Airtight bean canister"
+  brand: Generic
+  category: accessories
+  shape: scale
+  asin: ""
+  search: "airtight coffee bean storage canister vacuum"
+  blurb: "Beans go flat in about two weeks once air gets in."

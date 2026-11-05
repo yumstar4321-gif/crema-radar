@@ -305,6 +305,14 @@ def build(allow_sample: bool = False, local: bool = False) -> None:
     (OUT / "robots.txt").write_text(f"User-agent: *\nAllow: /\nSitemap: {site_url}/sitemap.xml\n")
     (OUT / ".nojekyll").write_text("")
 
+    # GitHub Pages reads CNAME from the published branch. The publish force-pushes,
+    # so without this the custom domain would be dropped on every run.
+    domain = (cfg["site"].get("custom_domain") or "").strip().lstrip("https://").rstrip("/")
+    if domain and not local:
+        (OUT / "CNAME").write_text(domain + "\n")
+        if domain not in site_url:
+            print(f"  ! custom_domain is '{domain}' but site.url is '{site_url}' — update url to match")
+
     print(f"Built {len(pages)} pages into ./site "
           f"({len(live_deals)} live deals, {len(picks)} picks, {len(guides)} guides"
           f"{', SAMPLE PRICES' if is_sample else ''}).")

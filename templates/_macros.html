@@ -48,6 +48,32 @@
   <path class="ln" d="M44 59v21a12 5 0 0 0 24 0V59"/>
   <rect class="fl" x="38" y="86" width="36" height="5" rx="2.5"/>
 </svg>
+{% elif shape == 'tamper' %}
+<svg viewBox="0 0 112 96" aria-hidden="true" class="ill">
+  <path class="ln" d="M44 12h24a7 7 0 0 1 7 7v11a7 7 0 0 1-7 7H44a7 7 0 0 1-7-7V19a7 7 0 0 1 7-7z"/>
+  <path class="lq" d="M44 22h24"/>
+  <path class="ln" d="M50 37h12v17H50z"/>
+  <ellipse class="ln" cx="56" cy="58" rx="25" ry="7"/>
+  <path class="ln" d="M31 58v7a25 7 0 0 0 50 0v-7"/>
+  <rect class="fl" x="30" y="80" width="52" height="5" rx="2.5"/>
+</svg>
+{% elif shape == 'jug' %}
+<svg viewBox="0 0 112 98" aria-hidden="true" class="ill">
+  <path class="ln" d="M36 24h40l-6 54a8 8 0 0 1-8 7H50a8 8 0 0 1-8-7z"/>
+  <path class="ln" d="M36 24l-9-7"/>
+  <path class="ln" d="M76 32c13 3 14 27 1 31"/>
+  <path class="lq" d="M42 46h28"/>
+  <rect class="fl" x="38" y="87" width="38" height="5" rx="2.5"/>
+</svg>
+{% elif shape == 'brewer' %}
+<svg viewBox="0 0 112 100" aria-hidden="true" class="ill">
+  <path class="ln" d="M30 20h52L58 48H54z"/>
+  <path class="lq" d="M42 29h28"/>
+  <path class="ln" d="M48 48h16v8H48z"/>
+  <path class="ln" d="M40 56h32a6 6 0 0 1 6 6v18a10 10 0 0 1-10 10H44a10 10 0 0 1-10-10V62a6 6 0 0 1 6-6z"/>
+  <path class="lq" d="M40 72h32"/>
+  <rect class="fl" x="34" y="92" width="44" height="5" rx="2.5"/>
+</svg>
 {% elif shape == 'scale' %}
 <svg viewBox="0 0 112 88" aria-hidden="true" class="ill">
   <path class="lq" d="M49 14c0-5 5-5 5-10M62 14c0-5 5-5 5-10"/>
@@ -133,7 +159,7 @@
     {% if d.was %}was <s>${{ '{:,.0f}'.format(d.was) }}</s> · {% endif %}{{ d.when }} · {{ d.source }}
   </p>
 </div>
-{% else %}
+{% elif p.category != 'accessories' %}
 <div class="phero phero--empty phero--{{ size }}">
   <p class="phero__label">Lowest price seen</p>
   <p class="phero__none">Not recorded yet</p>
