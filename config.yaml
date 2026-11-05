@@ -17,7 +17,7 @@ site:
 amazon:
   # Your Amazon Associates AU tracking ID. It ends in -22.
   # Until you have one, links still work but earn nothing.
-  tracking_id: "YOURTAG-22"
+  tracking_id: "cremaradar-22"
   marketplace: "www.amazon.com.au"
 
 deals:
