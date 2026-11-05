@@ -31,6 +31,9 @@ ROOT = Path(__file__).resolve().parent.parent
 OUT = ROOT / "site"
 LIVE = ROOT / "build" / "live_prices.json"
 
+DEFAULT_SHAPE = {"machines": "espresso", "grinders": "grinder",
+                 "pods": "pod", "accessories": "scale"}
+
 CATEGORIES = {
     "machines": ("Espresso machines", "Manual, semi-automatic and bean-to-cup machines."),
     "grinders": ("Grinders", "Burr grinders, electric and hand. The upgrade that matters most."),
@@ -149,6 +152,23 @@ def build(allow_sample: bool = False, local: bool = False) -> None:
                 p["image_url"] = f"{base}/static/products/{img}"
             else:
                 print(f"  ! image '{img}' for {p['id']} not found in static/products/")
+        p["shape"] = (p.get("shape") or "").strip() or DEFAULT_SHAPE.get(p["category"], "espresso")
+
+        # Past prices reported by a named source. Never Amazon's own data.
+        hist = []
+        for h in (p.get("sale_history") or []):
+            missing = [k for k in ("date", "price", "source", "url") if not h.get(k)]
+            if missing:
+                print(f"  ! {p['id']}: sale_history entry missing {', '.join(missing)}, skipped")
+                continue
+            d = to_date(h["date"])
+            hist.append({**h, "date": d,
+                         "when": d.strftime("%-d %b %Y"),
+                         "when_short": d.strftime("%b %Y")})
+        hist.sort(key=lambda h: h["date"], reverse=True)
+        p["sale_history"] = hist
+        p["best_deal"] = min(hist, key=lambda h: h["price"]) if hist else None
+
         # When it last had a big discount, e.g. "October 2026"
         p["last_deal_date"] = None
         if p.get("last_deal"):
@@ -195,7 +215,7 @@ def build(allow_sample: bool = False, local: bool = False) -> None:
     common = dict(
         cfg=cfg, site=cfg["site"], base=base, site_url=site_url, year=today.year,
         today=today, price_time=price_time, is_sample=is_sample,
-        categories=CATEGORIES, newsletter=cfg.get("newsletter", {}),
+        categories=CATEGORIES, newsletter=cfg.get("newsletter", {}), today_month=today.month,
         disclosure="As an Amazon Associate I earn from qualifying purchases.",
     )
 

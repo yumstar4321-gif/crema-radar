@@ -1,12 +1,109 @@
-{% macro icon(cat) -%}
-{% if cat == 'grinders' %}
-<svg viewBox="0 0 48 48" aria-hidden="true"><path d="M17 6h14l-2 8H19z"/><rect x="13" y="14" width="22" height="8" rx="2"/><path d="M15 22h18l-3 18H18z"/><rect x="20" y="40" width="8" height="3" rx="1"/></svg>
-{% elif cat == 'pods' %}
-<svg viewBox="0 0 48 48" aria-hidden="true"><path d="M14 10h20v4H14z"/><path d="M16 14h16l-3 12H19z"/><rect x="10" y="30" width="28" height="10" rx="3"/></svg>
-{% elif cat == 'accessories' %}
-<svg viewBox="0 0 48 48" aria-hidden="true"><rect x="8" y="24" width="32" height="12" rx="3"/><rect x="14" y="27" width="10" height="5" rx="1" class="cut"/><circle cx="31" cy="30" r="2.5" class="cut"/></svg>
-{% else %}
-<svg viewBox="0 0 48 48" aria-hidden="true"><rect x="8" y="6" width="32" height="10" rx="3"/><rect x="10" y="16" width="28" height="24" rx="2"/><rect x="17" y="22" width="14" height="10" rx="2" class="cut"/><rect x="8" y="40" width="32" height="3" rx="1.5"/></svg>
+{# ── Original line illustrations, one per machine type ──────────────
+   Drawn here from scratch: no Amazon or manufacturer artwork. Once the
+   Amazon API is on, a real product photo replaces these automatically. #}
+
+{% macro illustration(shape) -%}
+{% if shape == 'beantocup' %}
+<svg viewBox="0 0 120 112" aria-hidden="true" class="ill">
+  <path class="ln" d="M40 7h36l-6 15H46z"/>
+  <circle class="fl" cx="51" cy="13" r="2.4"/><circle class="fl" cx="58.5" cy="16" r="2.4"/><circle class="fl" cx="66" cy="12.5" r="2.4"/>
+  <rect class="ln" x="27" y="22" width="60" height="57" rx="7"/>
+  <rect class="lq" x="35" y="31" width="24" height="13" rx="2"/>
+  <circle class="ln" cx="73" cy="37" r="6"/><circle class="fl" cx="73" cy="37" r="1.8"/>
+  <path class="lq" d="M35 54h40"/>
+  <rect class="ln" x="46" y="79" width="22" height="7" rx="2"/>
+  <path class="ln" d="M52 86v4M62 86v4"/>
+  <path class="ln" d="M46 91h22l-3 12H49z"/>
+  <rect class="fl" x="23" y="104" width="68" height="5" rx="2.5"/>
+</svg>
+{% elif shape == 'pod' %}
+<svg viewBox="0 0 120 106" aria-hidden="true" class="ill">
+  <path class="ln" d="M43 17c0-7 7-11 14-10"/>
+  <path class="ln" d="M40 18h24a9 9 0 0 1 9 9v42a7 7 0 0 1-7 7H38a7 7 0 0 1-7-7V27a9 9 0 0 1 9-9z"/>
+  <path class="lq" d="M73 31h12a5 5 0 0 1 5 5v24a5 5 0 0 1-5 5H73"/>
+  <path class="lq" d="M79 38v20"/>
+  <rect class="ln" x="45" y="76" width="14" height="6" rx="2"/>
+  <path class="ln" d="M42 84h20l-3 11H45z"/>
+  <rect class="fl" x="30" y="96" width="48" height="5" rx="2.5"/>
+</svg>
+{% elif shape == 'grinder' %}
+<svg viewBox="0 0 112 106" aria-hidden="true" class="ill">
+  <path class="ln" d="M37 9h38"/>
+  <path class="ln" d="M36 12h40l-7 19H43z"/>
+  <circle class="fl" cx="48" cy="18" r="2.4"/><circle class="fl" cx="56" cy="21" r="2.4"/><circle class="fl" cx="64" cy="17" r="2.4"/>
+  <rect class="ln" x="41" y="31" width="30" height="31" rx="4"/>
+  <circle class="ln" cx="56" cy="46" r="7"/><path class="ln" d="M56 41.5v4.5"/>
+  <rect class="ln" x="50" y="62" width="12" height="6" rx="1.5"/>
+  <path class="ln" d="M39 70h34l-4 24H43z"/>
+  <path class="lq" d="M44 80h24"/>
+  <rect class="fl" x="33" y="96" width="46" height="5" rx="2.5"/>
+</svg>
+{% elif shape == 'handgrinder' %}
+<svg viewBox="0 0 112 98" aria-hidden="true" class="ill">
+  <path class="ln" d="M56 15V8h19"/>
+  <circle class="fl" cx="79" cy="9" r="5"/>
+  <ellipse class="ln" cx="56" cy="19" rx="14" ry="4.5"/>
+  <path class="ln" d="M42 19v38a14 5.5 0 0 0 28 0V19"/>
+  <path class="lq" d="M43 33h26M43 41h26"/>
+  <path class="ln" d="M44 59v21a12 5 0 0 0 24 0V59"/>
+  <rect class="fl" x="38" y="86" width="36" height="5" rx="2.5"/>
+</svg>
+{% elif shape == 'scale' %}
+<svg viewBox="0 0 112 88" aria-hidden="true" class="ill">
+  <path class="lq" d="M49 14c0-5 5-5 5-10M62 14c0-5 5-5 5-10"/>
+  <path class="ln" d="M40 20h32l-5 22H45z"/>
+  <path class="ln" d="M72 24h6a5 5 0 0 1 0 10h-7"/>
+  <rect class="ln" x="17" y="46" width="78" height="11" rx="4"/>
+  <rect class="ln" x="17" y="57" width="78" height="16" rx="4"/>
+  <rect class="fl" x="27" y="61" width="26" height="8" rx="2"/>
+  <circle class="ln" cx="72" cy="65" r="3.2"/><circle class="ln" cx="84" cy="65" r="3.2"/>
+</svg>
+{% elif shape == 'espresso-grinder' %}
+<svg viewBox="0 0 120 118" aria-hidden="true" class="ill">
+  <path class="ln" d="M44 6h30l-5 13H49z"/>
+  <circle class="fl" cx="53" cy="11" r="2.2"/><circle class="fl" cx="59.5" cy="14" r="2.2"/><circle class="fl" cx="66" cy="10.5" r="2.2"/>
+  <rect class="ln" x="26" y="24" width="56" height="55" rx="6"/>
+  <path class="lq" d="M26 36h56"/>
+  <circle class="ln" cx="66" cy="48" r="7"/><circle class="fl" cx="66" cy="48" r="2"/>
+  <rect class="lq" x="36" y="42" width="18" height="11" rx="2"/>
+  <path class="ln" d="M82 40c7 1 6 11 4 17l-2 7"/>
+  <circle class="fl" cx="84" cy="66" r="2.4"/>
+  <rect class="ln" x="40" y="79" width="23" height="7" rx="2"/>
+  <path class="ln" d="M63 82.5h17"/><circle class="fl" cx="85" cy="82.5" r="4"/>
+  <path class="ln" d="M47 86v4M56 86v4"/>
+  <path class="ln" d="M42 91h20l-3 12H45z"/>
+  <rect class="fl" x="22" y="105" width="66" height="5" rx="2.5"/>
+</svg>
+{% elif shape == 'espresso-dual' %}
+<svg viewBox="0 0 120 110" aria-hidden="true" class="ill">
+  <path class="ln" d="M31 16v-5h50v5"/>
+  <rect class="ln" x="26" y="16" width="56" height="55" rx="6"/>
+  <path class="lq" d="M26 28h56"/>
+  <circle class="ln" cx="46" cy="45" r="8"/><path class="ln" d="M46 40v5"/>
+  <circle class="ln" cx="68" cy="45" r="8"/><path class="ln" d="M68 40l3.5 4.5"/>
+  <path class="ln" d="M82 32c7 1 6 11 4 17l-2 7"/>
+  <circle class="fl" cx="84" cy="58" r="2.4"/>
+  <rect class="ln" x="40" y="71" width="23" height="7" rx="2"/>
+  <path class="ln" d="M63 74.5h17"/><circle class="fl" cx="85" cy="74.5" r="4"/>
+  <path class="ln" d="M47 78v4M56 78v4"/>
+  <path class="ln" d="M42 83h20l-3 12H45z"/>
+  <rect class="fl" x="22" y="97" width="66" height="5" rx="2.5"/>
+</svg>
+{% else %}{# espresso: semi-automatic with portafilter #}
+<svg viewBox="0 0 120 110" aria-hidden="true" class="ill">
+  <path class="ln" d="M31 16v-5h50v5"/>
+  <rect class="ln" x="26" y="16" width="56" height="55" rx="6"/>
+  <path class="lq" d="M26 28h56"/>
+  <circle class="ln" cx="66" cy="40" r="7"/><circle class="fl" cx="66" cy="40" r="2"/>
+  <rect class="lq" x="36" y="34" width="18" height="11" rx="2"/>
+  <path class="ln" d="M82 32c7 1 6 11 4 17l-2 7"/>
+  <circle class="fl" cx="84" cy="58" r="2.4"/>
+  <rect class="ln" x="40" y="71" width="23" height="7" rx="2"/>
+  <path class="ln" d="M63 74.5h17"/><circle class="fl" cx="85" cy="74.5" r="4"/>
+  <path class="ln" d="M47 78v4M56 78v4"/>
+  <path class="ln" d="M42 83h20l-3 12H45z"/>
+  <rect class="fl" x="22" y="97" width="66" height="5" rx="2.5"/>
+</svg>
 {% endif %}
 {%- endmacro %}
 
@@ -17,9 +114,43 @@
   {% elif p.image_url %}
     <img src="{{ p.image_url }}" alt="{{ p.name }}" loading="lazy">
   {% else %}
-    {{ icon(p.category) }}
+    {{ illustration(p.shape) }}
   {% endif %}
 </div>
+{%- endmacro %}
+
+{# ── Price history: past prices reported elsewhere, never live Amazon data ── #}
+{% macro history_line(p) -%}
+{% if p.best_deal %}
+<p class="hist-line">
+  <span class="hist-line__low">Seen as low as ${{ '{:,.0f}'.format(p.best_deal.price) }}</span>
+  {% if p.best_deal.was %}<span class="hist-line__was">from ${{ '{:,.0f}'.format(p.best_deal.was) }}</span>{% endif %}
+  <span class="hist-line__when">{{ p.best_deal.when }}</span>
+</p>
+{% elif p.last_deal %}
+<p class="lastdeal"><span aria-hidden="true">↓</span> Last big drop on Amazon AU: <strong>{{ p.last_deal }}</strong></p>
+{% endif %}
+{%- endmacro %}
+
+{% macro history_panel(p) -%}
+{% if p.sale_history %}
+<section class="hist">
+  <h2 class="hist__title">What it has sold for</h2>
+  <table class="hist__table">
+    <thead><tr><th>When</th><th>Price</th><th>Reported by</th></tr></thead>
+    <tbody>
+      {% for h in p.sale_history %}
+      <tr{% if h is sameas p.best_deal %} class="is-low"{% endif %}>
+        <td>{{ h.when }}</td>
+        <td><strong>${{ '{:,.0f}'.format(h.price) }}</strong>{% if h.was %} <span class="hist__was">from ${{ '{:,.0f}'.format(h.was) }}</span>{% endif %}{% if h.note %} <span class="hist__note">{{ h.note }}</span>{% endif %}</td>
+        <td>{% if h.url %}<a href="{{ h.url }}" rel="nofollow noopener" target="_blank">{{ h.source }}</a>{% else %}{{ h.source }}</a>{% endif %}</td>
+      </tr>
+      {% endfor %}
+    </tbody>
+  </table>
+  <p class="hist__caveat">These are past prices reported by the sources above, not live Amazon data, and they may no longer be available. Always check the price on Amazon before buying.</p>
+</section>
+{% endif %}
 {%- endmacro %}
 
 {% macro price_box(p, price_time, size='sm') -%}
@@ -57,9 +188,7 @@
     <p class="eyebrow">{{ p.brand }} · {{ p.category_name }}</p>
     <h3 class="card__title"><a href="{{ p.url }}">{{ p.name }}</a></h3>
     <p class="card__blurb">{{ p.blurb }}</p>
-    {% if p.last_deal and not (p.live and p.live.is_deal) %}
-      <p class="lastdeal"><span aria-hidden="true">↓</span> Last big drop on Amazon AU: <strong>{{ p.last_deal }}</strong></p>
-    {% endif %}
+    {% if not (p.live and p.live.is_deal) %}{{ history_line(p) }}{% endif %}
     {{ price_box(p, price_time) }}
   </div>
 </article>
@@ -76,6 +205,36 @@
     {{ price_box(pk.p, price_time) }}
   </div>
 </article>
+{%- endmacro %}
+
+{# ── When Australian coffee gear actually goes on sale ── #}
+{% macro sale_calendar(today_month) -%}
+{% set months = [
+  ('Jan', 62, 'New Year'), ('Feb', 18, ''), ('Mar', 18, ''), ('Apr', 30, 'Easter'),
+  ('May', 55, 'Frenzy'), ('Jun', 85, 'EOFY'), ('Jul', 88, 'Prime Day'),
+  ('Aug', 20, ''), ('Sep', 28, ''), ('Oct', 80, 'Prime Day'),
+  ('Nov', 100, 'Black Friday'), ('Dec', 72, 'Boxing Day')
+] %}
+<figure class="calfig">
+  <svg viewBox="0 0 760 240" role="img" aria-label="Australian coffee gear sale events peak in November, with other highs in June, July and October" class="cal">
+    <text class="cal-title" x="0" y="18">November is the deepest discount month of the year</text>
+    <text class="cal-sub" x="0" y="38">When Australian retailers run the sale events that move coffee gear prices</text>
+    {% for name, h, label in months %}
+      {% set x = 10 + loop.index0 * 62 %}
+      {% set bar = (h / 100 * 120) | round %}
+      <g class="cal-col{% if loop.index == today_month %} is-now{% endif %}">
+        <rect class="cal-bar" x="{{ x }}" y="{{ 190 - bar }}" width="40" height="{{ bar }}" rx="5"/>
+        <text class="cal-month" x="{{ x + 20 }}" y="208" text-anchor="middle">{{ name }}</text>
+        {% if label %}
+        <text class="cal-label" x="{{ x + 20 }}" y="{{ 184 - bar }}" text-anchor="middle">{{ label }}</text>
+        {% endif %}
+      </g>
+    {% endfor %}
+    <line class="cal-axis" x1="6" y1="191" x2="754" y2="191"/>
+    <text class="cal-foot" x="0" y="232">Height shows how many major sale events fall in each month, not an average discount.</text>
+  </svg>
+  <figcaption>Plan around the tall bars. Outside them, a "sale" is usually just a smaller markdown off an inflated RRP.</figcaption>
+</figure>
 {%- endmacro %}
 
 {% macro signup(newsletter, compact=false) -%}

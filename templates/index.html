@@ -1,5 +1,5 @@
 {% extends "base.html" %}
-{% from "_macros.html" import card, pick_card, signup %}
+{% from "_macros.html" import card, pick_card, signup, sale_calendar %}
 {% block content %}
 <section class="hero">
   <div class="wrap hero__inner">
@@ -53,6 +53,11 @@
     </div>
     <div class="grid">{% for p in featured %}{{ card(p, price_time, base) }}{% endfor %}</div>
   </div>
+</section>
+
+<section class="section wrap">
+  <div class="section__head"><h2>When coffee gear actually goes on sale</h2><a class="more" href="{{ base }}/deals/">Today's deals →</a></div>
+  {{ sale_calendar(today_month) }}
 </section>
 
 <section class="section wrap">

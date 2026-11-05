@@ -7,14 +7,26 @@
 #               links to an Amazon AU search instead.
 #    search     what to search on Amazon AU while asin is blank
 #    category   machines | grinders | pods | accessories
+#    shape      which illustration to draw: espresso | beantocup | pod |
+#               grinder | handgrinder | scale
 #    blurb      one or two sentences in your own words
 #    last_deal  optional, e.g. "October 2026": when it last had a big
-#               discount on Amazon AU. Shown as "Last big drop" on the site.
-#               Words only, never the price.
+#               discount on Amazon AU. Words only, never a price.
 #    image      optional filename in static/products/ for a photo YOU own
 #               or have the brand's permission to use. Never download
-#               images from Amazon (against Amazon's rules). Once the API
-#               is on, Amazon's own image appears automatically.
+#               images from Amazon. Once the API is on, Amazon's own
+#               image appears automatically and takes priority.
+#
+#    sale_history  past prices REPORTED BY A NAMED SOURCE. Never type a
+#               price you read on Amazon yourself: Amazon only allows its
+#               own prices through its API. Every entry needs date,
+#               price, source and url, or the build fails.
+#                 date   YYYY-MM-DD the source published it
+#                 price  the sale price in AUD, numbers only
+#                 was    optional: the before price the same source gave
+#                 source who reported it
+#                 url    link to that report
+#                 note   optional, e.g. "Prime members only"
 #
 #  ASINs marked "(OzBargain)" were taken from Amazon AU deal posts on
 #  OzBargain on the date shown. Open each one on amazon.com.au once to
@@ -27,42 +39,81 @@
   name: "Breville the Barista Express (Charcoal)"
   brand: Breville
   category: machines
+  shape: espresso-grinder
   asin: "B09DP4PSX1"            # BES870CHR (OzBargain, 11 Oct 2026)
   search: "Breville Barista Express BES870"
   last_deal: "October 2026"
   blurb: "Semi-automatic espresso machine with a built-in conical burr grinder. The classic first 'proper' machine for a lot of Aussie kitchens."
+  sale_history:
+    - date: 2026-10-11
+      price: 588
+      was: 999
+      source: OzBargain
+      url: https://www.ozbargain.com.au/node/978554
+      note: "Charcoal, excl. NT"
+    - date: 2026-10-06
+      price: 588
+      was: 999
+      source: TechRadar AU
+      url: https://www.techradar.com/home/coffee-machines/all-the-best-coffee-machine-deals-on-amazon-prime-big-deal-days-2026-in-australia
 
 - id: breville-bambino-plus
   name: "Breville the Bambino Plus"
   brand: Breville
   category: machines
+  shape: espresso
   asin: "B07KQBV3N6"            # BES500 (OzBargain, May 2026)
   search: "Breville Bambino Plus BES500"
   last_deal: "August 2026"
   blurb: "Compact espresso machine with automatic milk texturing. Pair it with a separate grinder."
+  sale_history:
+    - date: 2026-08-25
+      price: 447
+      source: OzBargain
+      url: https://www.ozbargain.com.au/product/breville-bes500
+      note: "Pomodoro Rosso"
+    - date: 2026-10-06
+      price: 487
+      was: 729
+      source: TechRadar AU
+      url: https://www.techradar.com/home/coffee-machines/all-the-best-coffee-machine-deals-on-amazon-prime-big-deal-days-2026-in-australia
 
 - id: breville-dual-boiler
   name: "Breville the Dual Boiler"
   brand: Breville
   category: machines
+  shape: espresso-dual
   asin: "B072BV6R66"            # BES920BSS (OzBargain, 29 Sep 2026)
   search: "Breville Dual Boiler BES920"
   last_deal: "September 2026"
   blurb: "Two separate boilers, so you can pull a shot and steam milk at the same time. Breville's enthusiast-level machine."
+  sale_history:
+    - date: 2026-09-29
+      price: 1138
+      source: OzBargain
+      url: https://www.ozbargain.com.au/node/976877
 
 - id: breville-infuser
   name: "Breville the Infuser"
   brand: Breville
   category: machines
+  shape: espresso
   asin: "B00RFAQXTK"            # Brushed Stainless Steel (OzBargain, 29 Sep 2026)
   search: "Breville Infuser BES840"
   last_deal: "September 2026"
   blurb: "Breville's entry-level manual espresso machine. No built-in grinder, so budget for one."
+  sale_history:
+    - date: 2026-09-29
+      price: 379
+      source: OzBargain
+      url: https://www.ozbargain.com.au/node/977038
+      note: "Prime members"
 
 - id: breville-barista-pro
   name: "Breville the Barista Pro"
   brand: Breville
   category: machines
+  shape: espresso-grinder
   asin: ""
   search: "Breville Barista Pro BES878"
   blurb: "Step up from the Express with a faster-heating system and a digital display, still with the grinder built in."
@@ -71,23 +122,40 @@
   name: "De'Longhi Rivelia Start"
   brand: "De'Longhi"
   category: machines
+  shape: beantocup
   asin: "B0H8RSRYS5"            # Beige (OzBargain, 20 Oct 2026)
   search: "De'Longhi Rivelia Start"
   last_deal: "October 2026"
   blurb: "Fully automatic bean-to-cup machine from De'Longhi's Rivelia range: grinds, doses and brews at the press of a button."
+  sale_history:
+    - date: 2026-10-20
+      price: 859
+      was: 1499
+      source: OzBargain
+      url: https://www.ozbargain.com.au/node/979687
+      note: Beige
 
 - id: delonghi-dedica
   name: "De'Longhi Dedica"
   brand: "De'Longhi"
   category: machines
+  shape: espresso
   asin: ""
   search: "De'Longhi Dedica EC685"
   blurb: "Slim manual espresso machine for small benches and tighter budgets."
+  sale_history:
+    - date: 2026-10-06
+      price: 249
+      was: 399
+      source: TechRadar AU
+      url: https://www.techradar.com/home/coffee-machines/all-the-best-coffee-machine-deals-on-amazon-prime-big-deal-days-2026-in-australia
+      note: "EC685BK"
 
 - id: delonghi-magnifica-s
   name: "De'Longhi Magnifica S"
   brand: "De'Longhi"
   category: machines
+  shape: beantocup
   asin: ""                      # Past "deals" were Amazon UK imports (UK plug). Don't use those.
   search: "De'Longhi Magnifica S ECAM22110"
   blurb: "Fully automatic bean-to-cup machine: grinds, tamps and brews at the press of a button."
@@ -96,15 +164,28 @@
   name: "Philips 4400 Series fully automatic"
   brand: Philips
   category: machines
+  shape: beantocup
   asin: "B0DZPB5SYX"            # (OzBargain, 30 Sep 2026)
   search: "Philips 4400 Series fully automatic espresso machine"
   last_deal: "September 2026"
   blurb: "Fully automatic bean-to-cup machine from Philips' 4400 Series, aimed at households that want café drinks without learning to tamp."
+  sale_history:
+    - date: 2026-09-30
+      price: 464
+      source: OzBargain
+      url: https://www.ozbargain.com.au/node/977052
+      note: "Prime members"
+    - date: 2026-10-06
+      price: 798
+      was: 1199
+      source: TechRadar AU
+      url: https://www.techradar.com/home/coffee-machines/all-the-best-coffee-machine-deals-on-amazon-prime-big-deal-days-2026-in-australia
 
 - id: gaggia-classic-evo-pro
   name: "Gaggia Classic Evo Pro"
   brand: Gaggia
   category: machines
+  shape: espresso
   asin: ""
   search: "Gaggia Classic Evo Pro"
   blurb: "Long-running manual machine with a commercial-size portafilter. Popular with tinkerers who want to learn espresso properly."
@@ -113,10 +194,17 @@
   name: "Sunbeam Mini Barista"
   brand: Sunbeam
   category: machines
+  shape: espresso
   asin: "B088NHQ9YK"            # EM4300S Silver (OzBargain, 29 Sep 2026)
   search: "Sunbeam Mini Barista EM4300S"
   last_deal: "September 2026"
   blurb: "Compact Sunbeam espresso machine for small kitchens and first-time home baristas."
+  sale_history:
+    - date: 2026-09-29
+      price: 209
+      source: OzBargain
+      url: https://www.ozbargain.com.au/node/976830
+      note: "Silver, Prime members"
 
 # ── Grinders ───────────────────────────────────────────────
 
@@ -124,15 +212,28 @@
   name: "Breville the Smart Grinder Pro"
   brand: Breville
   category: grinders
+  shape: grinder
   asin: "B071F7C193"            # BCG820BSS (OzBargain, 8 Jun 2026)
   search: "Breville Smart Grinder Pro BCG820"
   last_deal: "June 2026"
   blurb: "Electric conical burr grinder with 60 grind settings, covering espresso through to plunger."
+  sale_history:
+    - date: 2026-06-08
+      price: 239
+      source: OzBargain
+      url: https://www.ozbargain.com.au/node/962529
+      note: "Brushed stainless"
+    - date: 2026-10-06
+      price: 347
+      was: 449
+      source: TechRadar AU
+      url: https://www.techradar.com/home/coffee-machines/all-the-best-coffee-machine-deals-on-amazon-prime-big-deal-days-2026-in-australia
 
 - id: baratza-encore-esp
   name: "Baratza Encore ESP"
   brand: Baratza
   category: grinders
+  shape: grinder
   asin: ""
   search: "Baratza Encore ESP"
   blurb: "Entry-level electric burr grinder tuned for espresso, from a brand known for repairable parts."
@@ -141,6 +242,7 @@
   name: "Timemore Chestnut C3 hand grinder"
   brand: Timemore
   category: grinders
+  shape: handgrinder
   asin: ""
   search: "Timemore Chestnut C3"
   blurb: "Well-regarded budget hand grinder. A cheap way to get fresh, consistent grounds for filter coffee."
@@ -151,18 +253,33 @@
   name: "Nespresso Vertuo Up + Aeroccino bundle"
   brand: Nespresso
   category: pods
+  shape: pod
   asin: "B0GQBLW7WT"            # Breville, Ink Black (OzBargain, 8 Jul 2026)
   search: "Nespresso Vertuo Up Aeroccino bundle"
   last_deal: "July 2026"
   blurb: "Vertuo pod machine bundled with an Aeroccino milk frother for lattes and cappuccinos at the press of a button."
+  sale_history:
+    - date: 2026-07-08
+      price: 299
+      was: 439
+      source: OzBargain
+      url: https://www.ozbargain.com.au/node/967033
+      note: "Ink Black"
 
 - id: nespresso-vertuo-pop
   name: "Nespresso Vertuo Pop"
   brand: Nespresso
   category: pods
+  shape: pod
   asin: ""
   search: "Nespresso Vertuo Pop Breville"
   blurb: "Entry-level Vertuo pod machine. Pods cost more per cup, but it's the least fuss option."
+  sale_history:
+    - date: 2026-10-06
+      price: 97
+      was: 199
+      source: TechRadar AU
+      url: https://www.techradar.com/home/coffee-machines/all-the-best-coffee-machine-deals-on-amazon-prime-big-deal-days-2026-in-australia
 
 # ── Accessories ────────────────────────────────────────────
 
@@ -170,6 +287,7 @@
   name: "Timemore Black Mirror coffee scale"
   brand: Timemore
   category: accessories
+  shape: scale
   asin: ""
   search: "Timemore Black Mirror scale"
   blurb: "A timer scale for weighing doses and shots. The cheapest upgrade that makes the biggest difference."

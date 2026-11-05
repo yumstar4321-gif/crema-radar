@@ -47,6 +47,30 @@ for p in products:
     if asin and not re.fullmatch(r"[A-Z0-9]{10}", asin):
         fail(f"product {p['id']}: ASIN '{asin}' isn't 10 letters/digits")
 
+# Past prices are allowed ONLY as sale_history entries that name a source and
+# link to it. Amazon's own prices may never be typed in by hand.
+for p in products:
+    for i, h in enumerate(p.get("sale_history") or []):
+        where = f"{p['id']} sale_history entry {i + 1}"
+        for key in ("date", "price", "source", "url"):
+            if not h.get(key):
+                fail(f"{where}: missing '{key}'. Every past price needs a date, price, source and link.")
+        if h.get("price") is not None and not isinstance(h["price"], (int, float)):
+            fail(f"{where}: price must be a plain number, e.g. 588")
+        if h.get("was") is not None and not isinstance(h["was"], (int, float)):
+            fail(f"{where}: was must be a plain number")
+        url = str(h.get("url") or "")
+        if url and not url.startswith("https://"):
+            fail(f"{where}: url must start with https://")
+        if "amazon." in url.lower():
+            fail(f"{where}: the source must be a published report, not an Amazon page. "
+                 "Amazon prices may only come from its API.")
+        if h.get("date") and not isinstance(h["date"], date):
+            try:
+                date.fromisoformat(str(h["date"]))
+            except ValueError:
+                fail(f"{where}: date must be YYYY-MM-DD")
+
 price_words = re.compile(r"(\$\s?\d|AU\$|A\$|\d\s?%|\bper ?cent\b|\bhalf price\b)", re.I)
 for i, pk in enumerate(picks):
     where = f"picks.yaml entry {i + 1}"

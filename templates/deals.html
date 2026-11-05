@@ -1,5 +1,5 @@
 {% extends "base.html" %}
-{% from "_macros.html" import card, pick_card, signup %}
+{% from "_macros.html" import card, pick_card, signup, sale_calendar %}
 {% block title %}Coffee machine deals on Amazon Australia today | {{ site.name }}{% endblock %}
 {% block description %}Today's genuine discounts on espresso machines, grinders and coffee gear at Amazon AU, checked every morning and measured against recent prices.{% endblock %}
 {% block content %}
@@ -41,6 +41,11 @@
   </div>
 </section>
 {% endif %}
+
+<section class="section wrap">
+  <div class="section__head"><h2>When coffee gear actually goes on sale</h2></div>
+  {{ sale_calendar(today_month) }}
+</section>
 
 {% if newsletter.form_action %}
 <section class="section wrap"><div class="callout">{{ signup(newsletter) }}</div></section>
