@@ -120,15 +120,25 @@
 {%- endmacro %}
 
 {# ── Price history: past prices reported elsewhere, never live Amazon data ── #}
-{% macro history_line(p) -%}
+{% macro price_hero(p, size='sm') -%}
 {% if p.best_deal %}
-<p class="hist-line">
-  <span class="hist-line__low">Seen as low as ${{ '{:,.0f}'.format(p.best_deal.price) }}</span>
-  {% if p.best_deal.was %}<span class="hist-line__was">from ${{ '{:,.0f}'.format(p.best_deal.was) }}</span>{% endif %}
-  <span class="hist-line__when">{{ p.best_deal.when }}</span>
-</p>
-{% elif p.last_deal %}
-<p class="lastdeal"><span aria-hidden="true">↓</span> Last big drop on Amazon AU: <strong>{{ p.last_deal }}</strong></p>
+{% set d = p.best_deal %}
+<div class="phero phero--{{ size }}">
+  <p class="phero__label">Lowest price seen</p>
+  <div class="phero__row">
+    <span class="phero__amount">${{ '{:,.0f}'.format(d.price) }}</span>
+    {% if d.saving_pct %}<span class="phero__badge">{{ d.saving_pct }}% off</span>{% endif %}
+  </div>
+  <p class="phero__meta">
+    {% if d.was %}was <s>${{ '{:,.0f}'.format(d.was) }}</s> · {% endif %}{{ d.when }} · {{ d.source }}
+  </p>
+</div>
+{% else %}
+<div class="phero phero--empty phero--{{ size }}">
+  <p class="phero__label">Lowest price seen</p>
+  <p class="phero__none">Not recorded yet</p>
+  <p class="phero__meta">{% if p.last_deal %}Last big drop on Amazon AU: {{ p.last_deal }}{% else %}We'll log one at the next sale{% endif %}</p>
+</div>
 {% endif %}
 {%- endmacro %}
 
@@ -187,8 +197,8 @@
   <div class="card__body">
     <p class="eyebrow">{{ p.brand }} · {{ p.category_name }}</p>
     <h3 class="card__title"><a href="{{ p.url }}">{{ p.name }}</a></h3>
+    {% if not (p.live and p.live.price) %}{{ price_hero(p) }}{% endif %}
     <p class="card__blurb">{{ p.blurb }}</p>
-    {% if not (p.live and p.live.is_deal) %}{{ history_line(p) }}{% endif %}
     {{ price_box(p, price_time) }}
   </div>
 </article>

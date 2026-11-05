@@ -43,7 +43,7 @@
   asin: "B09DP4PSX1"            # BES870CHR (OzBargain, 11 Oct 2026)
   search: "Breville Barista Express BES870"
   last_deal: "October 2026"
-  blurb: "Semi-automatic espresso machine with a built-in conical burr grinder. The classic first 'proper' machine for a lot of Aussie kitchens."
+  blurb: "Built-in burr grinder. The classic first ‘proper’ machine."
   sale_history:
     - date: 2026-10-11
       price: 588
@@ -65,7 +65,7 @@
   asin: "B07KQBV3N6"            # BES500 (OzBargain, May 2026)
   search: "Breville Bambino Plus BES500"
   last_deal: "August 2026"
-  blurb: "Compact espresso machine with automatic milk texturing. Pair it with a separate grinder."
+  blurb: "Compact, with automatic milk texturing. Needs its own grinder."
   sale_history:
     - date: 2026-08-25
       price: 447
@@ -86,7 +86,7 @@
   asin: "B072BV6R66"            # BES920BSS (OzBargain, 29 Sep 2026)
   search: "Breville Dual Boiler BES920"
   last_deal: "September 2026"
-  blurb: "Two separate boilers, so you can pull a shot and steam milk at the same time. Breville's enthusiast-level machine."
+  blurb: "Pull a shot and steam milk at once. Enthusiast level."
   sale_history:
     - date: 2026-09-29
       price: 1138
@@ -101,7 +101,7 @@
   asin: "B00RFAQXTK"            # Brushed Stainless Steel (OzBargain, 29 Sep 2026)
   search: "Breville Infuser BES840"
   last_deal: "September 2026"
-  blurb: "Breville's entry-level manual espresso machine. No built-in grinder, so budget for one."
+  blurb: "Breville’s entry-level manual machine. No grinder built in."
   sale_history:
     - date: 2026-09-29
       price: 379
@@ -116,7 +116,7 @@
   shape: espresso-grinder
   asin: ""
   search: "Breville Barista Pro BES878"
-  blurb: "Step up from the Express with a faster-heating system and a digital display, still with the grinder built in."
+  blurb: "Faster heating and a digital display, grinder built in."
 
 - id: delonghi-rivelia-start
   name: "De'Longhi Rivelia Start"
@@ -126,7 +126,7 @@
   asin: "B0H8RSRYS5"            # Beige (OzBargain, 20 Oct 2026)
   search: "De'Longhi Rivelia Start"
   last_deal: "October 2026"
-  blurb: "Fully automatic bean-to-cup machine from De'Longhi's Rivelia range: grinds, doses and brews at the press of a button."
+  blurb: "Bean-to-cup: grinds, doses and brews at one press."
   sale_history:
     - date: 2026-10-20
       price: 859
@@ -142,7 +142,7 @@
   shape: espresso
   asin: ""
   search: "De'Longhi Dedica EC685"
-  blurb: "Slim manual espresso machine for small benches and tighter budgets."
+  blurb: "Slim manual machine for small benches and tighter budgets."
   sale_history:
     - date: 2026-10-06
       price: 249
@@ -158,7 +158,7 @@
   shape: beantocup
   asin: ""                      # Past "deals" were Amazon UK imports (UK plug). Don't use those.
   search: "De'Longhi Magnifica S ECAM22110"
-  blurb: "Fully automatic bean-to-cup machine: grinds, tamps and brews at the press of a button."
+  blurb: "Bean-to-cup classic: grinds, tamps and brews automatically."
 
 - id: philips-4400
   name: "Philips 4400 Series fully automatic"
@@ -168,7 +168,7 @@
   asin: "B0DZPB5SYX"            # (OzBargain, 30 Sep 2026)
   search: "Philips 4400 Series fully automatic espresso machine"
   last_deal: "September 2026"
-  blurb: "Fully automatic bean-to-cup machine from Philips' 4400 Series, aimed at households that want café drinks without learning to tamp."
+  blurb: "Bean-to-cup with Philips’ easy-clean milk system."
   sale_history:
     - date: 2026-09-30
       price: 464
@@ -188,7 +188,7 @@
   shape: espresso
   asin: ""
   search: "Gaggia Classic Evo Pro"
-  blurb: "Long-running manual machine with a commercial-size portafilter. Popular with tinkerers who want to learn espresso properly."
+  blurb: "Commercial-size portafilter. For learning espresso properly."
 
 - id: sunbeam-mini-barista
   name: "Sunbeam Mini Barista"
@@ -198,7 +198,7 @@
   asin: "B088NHQ9YK"            # EM4300S Silver (OzBargain, 29 Sep 2026)
   search: "Sunbeam Mini Barista EM4300S"
   last_deal: "September 2026"
-  blurb: "Compact Sunbeam espresso machine for small kitchens and first-time home baristas."
+  blurb: "Compact machine for small kitchens and first-timers."
   sale_history:
     - date: 2026-09-29
       price: 209
@@ -216,7 +216,7 @@
   asin: "B071F7C193"            # BCG820BSS (OzBargain, 8 Jun 2026)
   search: "Breville Smart Grinder Pro BCG820"
   last_deal: "June 2026"
-  blurb: "Electric conical burr grinder with 60 grind settings, covering espresso through to plunger."
+  blurb: "60 grind settings, espresso through to plunger."
   sale_history:
     - date: 2026-06-08
       price: 239
@@ -236,7 +236,7 @@
   shape: grinder
   asin: ""
   search: "Baratza Encore ESP"
-  blurb: "Entry-level electric burr grinder tuned for espresso, from a brand known for repairable parts."
+  blurb: "Entry-level burr grinder for espresso, with repairable parts."
 
 - id: timemore-c3
   name: "Timemore Chestnut C3 hand grinder"
@@ -245,7 +245,7 @@
   shape: handgrinder
   asin: ""
   search: "Timemore Chestnut C3"
-  blurb: "Well-regarded budget hand grinder. A cheap way to get fresh, consistent grounds for filter coffee."
+  blurb: "Budget hand grinder. Cheap route to fresh, even grounds."
 
 # ── Pod machines ───────────────────────────────────────────
 
@@ -257,7 +257,7 @@
   asin: "B0GQBLW7WT"            # Breville, Ink Black (OzBargain, 8 Jul 2026)
   search: "Nespresso Vertuo Up Aeroccino bundle"
   last_deal: "July 2026"
-  blurb: "Vertuo pod machine bundled with an Aeroccino milk frother for lattes and cappuccinos at the press of a button."
+  blurb: "Vertuo pod machine bundled with a milk frother."
   sale_history:
     - date: 2026-07-08
       price: 299
@@ -273,7 +273,7 @@
   shape: pod
   asin: ""
   search: "Nespresso Vertuo Pop Breville"
-  blurb: "Entry-level Vertuo pod machine. Pods cost more per cup, but it's the least fuss option."
+  blurb: "Least fuss of all, but pods cost more per cup."
   sale_history:
     - date: 2026-10-06
       price: 97
@@ -290,4 +290,4 @@
   shape: scale
   asin: ""
   search: "Timemore Black Mirror scale"
-  blurb: "A timer scale for weighing doses and shots. The cheapest upgrade that makes the biggest difference."
+  blurb: "Timer scale for weighing doses and shots."

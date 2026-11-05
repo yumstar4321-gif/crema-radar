@@ -1,5 +1,5 @@
 {% extends "base.html" %}
-{% from "_macros.html" import thumb, price_box, card, signup, history_panel %}
+{% from "_macros.html" import thumb, price_box, card, signup, history_panel, price_hero %}
 {% block title %}{{ p.name }} price & deals in Australia | {{ site.name }}{% endblock %}
 {% block description %}Is the {{ p.name }} on sale at Amazon AU? {{ p.blurb }}{% endblock %}
 {% block content %}
@@ -10,17 +10,16 @@
     <div class="product__info">
       <p class="eyebrow">{{ p.brand }}</p>
       <h1>{{ p.name }}</h1>
-      <p class="lede">{{ p.blurb }}</p>
-
       {% if p.live and p.live.is_deal %}
         <p class="verdict verdict--yes">✓ On our deals list today</p>
-      {% elif p.live and p.live.price %}
-        <p class="verdict">Not a standout deal today. We'll flag it when it drops.</p>
       {% endif %}
-      {% if p.best_deal and not (p.live and p.live.is_deal) %}
-        <p class="lastdeal lastdeal--lg"><span aria-hidden="true">↓</span> The lowest price we've found reported is <strong>${{ '{:,.0f}'.format(p.best_deal.price) }}</strong>{% if p.best_deal.was %}, down from ${{ '{:,.0f}'.format(p.best_deal.was) }}{% endif %}, in {{ p.best_deal.when_short }}. Products that drop once tend to drop again around Black Friday, Boxing Day and Prime events.</p>
-      {% elif p.last_deal and not (p.live and p.live.is_deal) %}
-        <p class="lastdeal lastdeal--lg"><span aria-hidden="true">↓</span> Last big drop on Amazon AU: <strong>{{ p.last_deal }}</strong>. Machines that drop once tend to drop again around Black Friday, Boxing Day and Prime events.</p>
+
+      {% if not (p.live and p.live.price) %}{{ price_hero(p, 'lg') }}{% endif %}
+
+      <p class="lede">{{ p.blurb }}</p>
+
+      {% if p.best_deal and not (p.live and p.live.price) %}
+        <p class="small muted">Products that drop once tend to drop again around Black Friday, Boxing Day and Prime events.</p>
       {% endif %}
 
       {% for pk in p_picks %}

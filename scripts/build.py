@@ -162,7 +162,10 @@ def build(allow_sample: bool = False, local: bool = False) -> None:
                 print(f"  ! {p['id']}: sale_history entry missing {', '.join(missing)}, skipped")
                 continue
             d = to_date(h["date"])
-            hist.append({**h, "date": d,
+            pct = None
+            if h.get("was") and h["was"] > h["price"]:
+                pct = round((h["was"] - h["price"]) / h["was"] * 100)
+            hist.append({**h, "date": d, "saving_pct": pct,
                          "when": d.strftime("%-d %b %Y"),
                          "when_short": d.strftime("%b %Y")})
         hist.sort(key=lambda h: h["date"], reverse=True)
