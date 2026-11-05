@@ -1,0 +1,14 @@
+{% extends "base.html" %}
+{% from "_macros.html" import card %}
+{% block title %}{{ cat_name }} deals on Amazon Australia | {{ site.name }}{% endblock %}
+{% block description %}{{ cat_desc }} Prices and discounts at Amazon AU, checked daily.{% endblock %}
+{% block content %}
+<section class="page-head wrap">
+  <p class="eyebrow">Watchlist</p>
+  <h1>{{ cat_name }}</h1>
+  <p class="lede">{{ cat_desc }}</p>
+</section>
+<section class="section wrap">
+  <div class="grid">{% for p in items %}{{ card(p, price_time, base) }}{% endfor %}</div>
+</section>
+{% endblock %}

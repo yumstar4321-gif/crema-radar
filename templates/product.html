@@ -1,0 +1,47 @@
+{% extends "base.html" %}
+{% from "_macros.html" import thumb, price_box, card, signup %}
+{% block title %}{{ p.name }} price & deals in Australia | {{ site.name }}{% endblock %}
+{% block description %}Is the {{ p.name }} on sale at Amazon AU? {{ p.blurb }}{% endblock %}
+{% block content %}
+<section class="product wrap">
+  <nav class="crumbs" aria-label="Breadcrumb"><a href="{{ base }}/">Home</a> / <a href="{{ base }}/category/{{ p.category }}/">{{ p.category_name }}</a></nav>
+  <div class="product__grid">
+    <div class="product__media">{{ thumb(p) }}</div>
+    <div class="product__info">
+      <p class="eyebrow">{{ p.brand }}</p>
+      <h1>{{ p.name }}</h1>
+      <p class="lede">{{ p.blurb }}</p>
+
+      {% if p.live and p.live.is_deal %}
+        <p class="verdict verdict--yes">✓ On our deals list today</p>
+      {% elif p.live and p.live.price %}
+        <p class="verdict">Not a standout deal today. We'll flag it when it drops.</p>
+      {% endif %}
+      {% if p.last_deal and not (p.live and p.live.is_deal) %}
+        <p class="lastdeal lastdeal--lg"><span aria-hidden="true">↓</span> Last big drop on Amazon AU: <strong>{{ p.last_deal }}</strong>. Machines that drop once tend to drop again around Black Friday, Boxing Day and Prime events.</p>
+      {% endif %}
+
+      {% for pk in p_picks %}
+        <div class="note"><strong>{{ pk.headline }}</strong>{% if pk.note %}<br>{{ pk.note }}{% endif %}</div>
+      {% endfor %}
+
+      {{ price_box(p, price_time, size='lg') }}
+
+      {% if not p.has_asin and not p.live %}
+        <p class="small muted">This link opens an Amazon AU search. Check the listing has an Australian plug and warranty before buying.</p>
+      {% endif %}
+    </div>
+  </div>
+</section>
+
+{% if newsletter.form_action %}
+<section class="section wrap"><div class="callout">{{ signup(newsletter) }}<p class="small">We'll include the {{ p.name }} when it drops.</p></div></section>
+{% endif %}
+
+{% if related %}
+<section class="section section--tint"><div class="wrap">
+  <div class="section__head"><h2>Also in {{ p.category_name|lower }}</h2></div>
+  <div class="grid">{% for q in related %}{{ card(q, price_time, base) }}{% endfor %}</div>
+</div></section>
+{% endif %}
+{% endblock %}

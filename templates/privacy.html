@@ -1,0 +1,14 @@
+{% extends "base.html" %}
+{% block title %}Privacy | {{ site.name }}{% endblock %}
+{% block content %}
+<article class="article wrap">
+  <header class="article__head"><h1>Privacy</h1></header>
+  <div class="prose">
+    <p>This site doesn't use its own tracking cookies or analytics.</p>
+    <p><strong>Amazon.</strong> When you click a link to Amazon, Amazon may set cookies to attribute your purchase to us. That's governed by Amazon's privacy notice.</p>
+    {% if newsletter.form_action %}<p><strong>Newsletter.</strong> If you subscribe, your email address is held by {{ newsletter.provider_name or 'our newsletter provider' }} and used only to send our deal emails. You can unsubscribe from any email.</p>{% endif %}
+    <p><strong>Fonts.</strong> Pages load fonts from Google Fonts, which receives your IP address when it serves them.</p>
+    <p>Questions? {% if site.contact_email %}Email <a href="mailto:{{ site.contact_email }}">{{ site.contact_email }}</a>.{% else %}Use the contact details on the About page.{% endif %}</p>
+  </div>
+</article>
+{% endblock %}

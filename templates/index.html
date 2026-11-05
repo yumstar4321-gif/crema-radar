@@ -1,0 +1,78 @@
+{% extends "base.html" %}
+{% from "_macros.html" import card, pick_card, signup %}
+{% block content %}
+<section class="hero">
+  <div class="wrap hero__inner">
+    <div class="hero__copy">
+      <p class="eyebrow eyebrow--light">Amazon Australia · {{ today.strftime('%A %-d %B') }}</p>
+      <h1>Better coffee at home, <em>for less.</em></h1>
+      <p class="hero__lede">We watch espresso machines, grinders and coffee gear on Amazon AU every morning and flag only the genuine price drops, not the fake "RRP" discounts.</p>
+      <div class="hero__cta">
+        <a class="btn btn--light" href="{{ base }}/deals/">See today's deals</a>
+        <a class="btn btn--ghost" href="{{ base }}/guides/">Buying guides</a>
+      </div>
+    </div>
+    <div class="hero__aside">
+      {% if newsletter.form_action %}
+        {{ signup(newsletter) }}
+      {% else %}
+      <ul class="hero__facts">
+        <li><strong>Checked daily</strong><span>Every product on our watchlist, every morning</span></li>
+        <li><strong>Real discounts</strong><span>Measured against recent prices, not inflated RRPs</span></li>
+        <li><strong>Aussie stock</strong><span>We flag third-party and grey-import sellers</span></li>
+      </ul>
+      {% endif %}
+    </div>
+  </div>
+</section>
+
+<section class="section wrap">
+  <div class="section__head">
+    <h2>{% if live_deals or picks or not recent_droppers %}Today's best deals{% else %}Watch these for Black Friday{% endif %}</h2>
+    <a class="more" href="{{ base }}/deals/">All deals →</a>
+  </div>
+  {% if live_deals %}
+    <div class="grid">{% for p in live_deals %}{{ card(p, price_time, base) }}{% endfor %}</div>
+  {% elif picks %}
+    <div class="picks">{% for pk in picks %}{{ pick_card(pk, price_time) }}{% endfor %}</div>
+  {% elif recent_droppers %}
+    <p class="lede section__intro">These all had big discounts on Amazon AU in the last few months. Products that drop once usually drop again, so they're the ones to watch going into Black Friday.</p>
+    <div class="grid">{% for p in recent_droppers %}{{ card(p, price_time, base) }}{% endfor %}</div>
+  {% else %}
+    <div class="empty">
+      <p><strong>No standout deals right now.</strong> Coffee gear prices usually drop hardest around Black Friday, Boxing Day, end of financial year and Amazon's Prime events. In the meantime, here's what we're watching.</p>
+    </div>
+  {% endif %}
+</section>
+
+<section class="section section--tint">
+  <div class="wrap">
+    <div class="section__head">
+      <h2>More on our watchlist</h2>
+      <a class="more" href="{{ base }}/category/machines/">All machines →</a>
+    </div>
+    <div class="grid">{% for p in featured %}{{ card(p, price_time, base) }}{% endfor %}</div>
+  </div>
+</section>
+
+<section class="section wrap">
+  <div class="section__head"><h2>Before you buy</h2><a class="more" href="{{ base }}/guides/">All guides →</a></div>
+  <div class="guides">
+    {% for g in guides %}
+    <a class="guide-card" href="{{ base }}/guides/{{ g.slug }}/">
+      <h3>{{ g.title }}</h3>
+      <p>{{ g.description }}</p>
+      <span class="more">Read the guide →</span>
+    </a>
+    {% endfor %}
+  </div>
+</section>
+
+<section class="section wrap">
+  <div class="cats">
+    {% for key, (name, desc) in categories.items() %}
+    <a class="cat" href="{{ base }}/category/{{ key }}/"><strong>{{ name }}</strong><span>{{ desc }}</span></a>
+    {% endfor %}
+  </div>
+</section>
+{% endblock %}

@@ -1,0 +1,23 @@
+# ─────────────────────────────────────────────────────────────
+#  Hand-picked deals (phase 1, before you have API access).
+#
+#  Add one entry per deal you've personally checked on amazon.com.au.
+#  Do NOT type the Amazon price here. Amazon only allows prices that
+#  come from its API. Describe the deal in words instead, e.g.
+#  "Lowest we've seen it this year" or "Lightning deal, ends tonight".
+#
+#    date       YYYY-MM-DD you checked it
+#    product    an id from products.yaml
+#    headline   short, punchy line
+#    note       why it's worth a look (your words)
+#    ends       optional YYYY-MM-DD; the pick hides after this date
+#
+#  Newest first. The example below is commented out; copy its shape.
+# ─────────────────────────────────────────────────────────────
+
+# - date: 2026-11-04
+#   product: breville-barista-express
+#   headline: "Barista Express in the Black Friday sale"
+#   note: "Biggest discount we've tracked on Amazon AU this year. Check the colour; only some are discounted."
+#   ends: 2026-11-30
+[]

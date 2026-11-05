@@ -1,0 +1,79 @@
+{
+  "_note": "FAKE data shaped like a Creators API GetItems response, for offline testing only. Prices and ASINs are invented. 'sampleProductId' is not an Amazon field; it lets the test map items onto the watchlist.",
+  "itemsResult": {
+    "items": [
+      {
+        "asin": "B0SAMPLE01",
+        "sampleProductId": "breville-barista-express",
+        "detailPageURL": "https://www.amazon.com.au/dp/B0SAMPLE01?tag=YOURTAG-22&linkCode=ogi&th=1&psc=1",
+        "itemInfo": {"title": {"displayValue": "SAMPLE Breville the Barista Express"}},
+        "offersV2": {"listings": [{
+          "availability": {"type": "IN_STOCK", "message": "In Stock"},
+          "condition": {"value": "New"},
+          "isBuyBoxWinner": true,
+          "merchantInfo": {"name": "Amazon AU"},
+          "price": {
+            "money": {"amount": 599.0, "currency": "AUD", "displayAmount": "$599.00"},
+            "savingBasis": {"money": {"amount": 769.0, "currency": "AUD", "displayAmount": "$769.00"},
+                            "savingBasisType": "WAS_PRICE", "savingBasisTypeLabel": "Was"},
+            "savings": {"money": {"amount": 170.0, "currency": "AUD", "displayAmount": "$170.00"}, "percentage": 22}
+          }
+        }]}
+      },
+      {
+        "asin": "B0SAMPLE02",
+        "sampleProductId": "breville-smart-grinder-pro",
+        "detailPageURL": "https://www.amazon.com.au/dp/B0SAMPLE02?tag=YOURTAG-22&linkCode=ogi&th=1&psc=1",
+        "itemInfo": {"title": {"displayValue": "SAMPLE Breville the Smart Grinder Pro"}},
+        "offersV2": {"listings": [{
+          "availability": {"type": "IN_STOCK_SCARCE"},
+          "condition": {"value": "New"},
+          "isBuyBoxWinner": true,
+          "merchantInfo": {"name": "Amazon AU"},
+          "type": "LIGHTNING_DEAL",
+          "dealDetails": {"accessType": "ALL", "badge": "Limited time deal", "endTime": "2026-11-05T12:59Z", "percentClaimed": 41},
+          "price": {
+            "money": {"amount": 229.0, "currency": "AUD", "displayAmount": "$229.00"},
+            "savingBasis": {"money": {"amount": 279.0, "currency": "AUD", "displayAmount": "$279.00"},
+                            "savingBasisType": "LOWEST_PRICE", "savingBasisTypeLabel": "Lowest price in 30 days"},
+            "savings": {"money": {"amount": 50.0, "currency": "AUD", "displayAmount": "$50.00"}, "percentage": 18}
+          }
+        }]}
+      },
+      {
+        "asin": "B0SAMPLE03",
+        "sampleProductId": "delonghi-dedica",
+        "detailPageURL": "https://www.amazon.com.au/dp/B0SAMPLE03?tag=YOURTAG-22&linkCode=ogi&th=1&psc=1",
+        "itemInfo": {"title": {"displayValue": "SAMPLE De'Longhi Dedica"}},
+        "offersV2": {"listings": [{
+          "availability": {"type": "IN_STOCK"},
+          "condition": {"value": "New"},
+          "isBuyBoxWinner": true,
+          "merchantInfo": {"name": "Some Third-Party Seller"},
+          "price": {
+            "money": {"amount": 299.0, "currency": "AUD", "displayAmount": "$299.00"},
+            "savingBasis": {"money": {"amount": 399.0, "currency": "AUD", "displayAmount": "$399.00"},
+                            "savingBasisType": "LIST_PRICE", "savingBasisTypeLabel": "RRP"},
+            "savings": {"money": {"amount": 100.0, "currency": "AUD", "displayAmount": "$100.00"}, "percentage": 25}
+          }
+        }]}
+      },
+      {
+        "asin": "B0SAMPLE04",
+        "sampleProductId": "timemore-black-mirror-scale",
+        "detailPageURL": "https://www.amazon.com.au/dp/B0SAMPLE04?tag=YOURTAG-22&linkCode=ogi&th=1&psc=1",
+        "itemInfo": {"title": {"displayValue": "SAMPLE Timemore Black Mirror scale"}},
+        "offersV2": {"listings": [{
+          "availability": {"type": "IN_STOCK"},
+          "condition": {"value": "New"},
+          "isBuyBoxWinner": true,
+          "merchantInfo": {"name": "Amazon AU"},
+          "price": {"money": {"amount": 79.0, "currency": "AUD", "displayAmount": "$79.00"}}
+        }]}
+      }
+    ]
+  },
+  "errors": [
+    {"code": "ItemNotAccessible", "message": "SAMPLE: The ItemId B0SAMPLE99 is not accessible through the Creators API."}
+  ]
+}

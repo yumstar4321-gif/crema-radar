@@ -1,0 +1,7 @@
+# Built output and fresh price data are regenerated on every run.
+# Amazon prices must never be stored for more than 24 hours.
+site/
+build/
+__pycache__/
+*.pyc
+.env

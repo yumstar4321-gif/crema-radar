@@ -1,0 +1,92 @@
+{% macro icon(cat) -%}
+{% if cat == 'grinders' %}
+<svg viewBox="0 0 48 48" aria-hidden="true"><path d="M17 6h14l-2 8H19z"/><rect x="13" y="14" width="22" height="8" rx="2"/><path d="M15 22h18l-3 18H18z"/><rect x="20" y="40" width="8" height="3" rx="1"/></svg>
+{% elif cat == 'pods' %}
+<svg viewBox="0 0 48 48" aria-hidden="true"><path d="M14 10h20v4H14z"/><path d="M16 14h16l-3 12H19z"/><rect x="10" y="30" width="28" height="10" rx="3"/></svg>
+{% elif cat == 'accessories' %}
+<svg viewBox="0 0 48 48" aria-hidden="true"><rect x="8" y="24" width="32" height="12" rx="3"/><rect x="14" y="27" width="10" height="5" rx="1" class="cut"/><circle cx="31" cy="30" r="2.5" class="cut"/></svg>
+{% else %}
+<svg viewBox="0 0 48 48" aria-hidden="true"><rect x="8" y="6" width="32" height="10" rx="3"/><rect x="10" y="16" width="28" height="24" rx="2"/><rect x="17" y="22" width="14" height="10" rx="2" class="cut"/><rect x="8" y="40" width="32" height="3" rx="1.5"/></svg>
+{% endif %}
+{%- endmacro %}
+
+{% macro thumb(p) -%}
+<div class="thumb thumb--{{ p.category }}">
+  {% if p.live and p.live.image %}
+    <img src="{{ p.live.image }}" alt="{{ p.name }}" loading="lazy" referrerpolicy="no-referrer">
+  {% elif p.image_url %}
+    <img src="{{ p.image_url }}" alt="{{ p.name }}" loading="lazy">
+  {% else %}
+    {{ icon(p.category) }}
+  {% endif %}
+</div>
+{%- endmacro %}
+
+{% macro price_box(p, price_time, size='sm') -%}
+<div class="price price--{{ size }}">
+  {% if p.live and p.live.map_hidden %}
+    <p class="price__note">Price shown on Amazon at checkout.</p>
+  {% elif p.live and p.live.price %}
+    <div class="price__row">
+      <span class="price__now">{{ p.live.price }}</span>
+      {% if p.live.saving_pct %}<span class="badge badge--save">{{ p.live.saving_pct }}% off</span>{% endif %}
+    </div>
+    {% if p.live.was %}
+      <p class="price__was">{{ p.live.was_label or 'Was' }} <s>{{ p.live.was }}</s>
+        {% if not p.live.was_trusted %}<span class="hint" title="Compared with a list price (RRP), which the product may rarely sell for.">RRP comparison</span>{% endif %}
+      </p>
+    {% endif %}
+    {% if p.live.lightning or p.live.deal_badge %}
+      <p class="price__deal">⚡ {{ p.live.deal_badge or 'Lightning deal' }}{% if p.live.deal_claimed %} · {{ p.live.deal_claimed }}% claimed{% endif %}</p>
+    {% endif %}
+    {% if p.live.seller and 'amazon' not in (p.live.seller|lower) %}
+      <p class="price__seller">Sold by {{ p.live.seller }}</p>
+    {% endif %}
+    <p class="price__stamp">Amazon AU price as of {{ price_time }}. Prices and availability change; the price on Amazon at the time of purchase applies.</p>
+  {% endif %}
+  <a class="btn btn--buy" href="{{ p.link }}" rel="sponsored nofollow noopener" target="_blank">
+    {% if p.live and p.live.price %}View on Amazon AU{% else %}Check today's price on Amazon{% endif %}
+  </a>
+</div>
+{%- endmacro %}
+
+{% macro card(p, price_time, base) -%}
+<article class="card">
+  <a class="card__media" href="{{ p.url }}" tabindex="-1" aria-hidden="true">{{ thumb(p) }}</a>
+  <div class="card__body">
+    <p class="eyebrow">{{ p.brand }} · {{ p.category_name }}</p>
+    <h3 class="card__title"><a href="{{ p.url }}">{{ p.name }}</a></h3>
+    <p class="card__blurb">{{ p.blurb }}</p>
+    {% if p.last_deal and not (p.live and p.live.is_deal) %}
+      <p class="lastdeal"><span aria-hidden="true">↓</span> Last big drop on Amazon AU: <strong>{{ p.last_deal }}</strong></p>
+    {% endif %}
+    {{ price_box(p, price_time) }}
+  </div>
+</article>
+{%- endmacro %}
+
+{% macro pick_card(pk, price_time) -%}
+<article class="pick">
+  <a class="pick__media" href="{{ pk.p.url }}" tabindex="-1" aria-hidden="true">{{ thumb(pk.p) }}</a>
+  <div class="pick__body">
+    <p class="eyebrow">Hand-picked · {{ pk.date.strftime('%-d %b') }}{% if pk.ends %} · ends {{ pk.ends.strftime('%-d %b') }}{% endif %}</p>
+    <h3 class="pick__title"><a href="{{ pk.p.url }}">{{ pk.headline }}</a></h3>
+    <p class="pick__product">{{ pk.p.name }}</p>
+    {% if pk.note %}<p class="pick__note">{{ pk.note }}</p>{% endif %}
+    {{ price_box(pk.p, price_time) }}
+  </div>
+</article>
+{%- endmacro %}
+
+{% macro signup(newsletter, compact=false) -%}
+{% if newsletter.form_action %}
+<form class="signup{% if compact %} signup--compact{% endif %}" action="{{ newsletter.form_action }}" method="post" target="_blank">
+  <label class="signup__label" for="signup-email-{{ 'c' if compact else 'f' }}">Get the morning deal email</label>
+  <div class="signup__row">
+    <input id="signup-email-{{ 'c' if compact else 'f' }}" type="email" name="{{ newsletter.email_field_name or 'email' }}" placeholder="you@example.com" required autocomplete="email">
+    <button class="btn" type="submit">Subscribe</button>
+  </div>
+  <p class="signup__small">One short email when there's a deal worth knowing about. Unsubscribe any time.{% if newsletter.provider_name %} Sent with {{ newsletter.provider_name }}.{% endif %}</p>
+</form>
+{% endif %}
+{%- endmacro %}

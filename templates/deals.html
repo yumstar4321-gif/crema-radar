@@ -1,0 +1,48 @@
+{% extends "base.html" %}
+{% from "_macros.html" import card, pick_card, signup %}
+{% block title %}Coffee machine deals on Amazon Australia today | {{ site.name }}{% endblock %}
+{% block description %}Today's genuine discounts on espresso machines, grinders and coffee gear at Amazon AU, checked every morning and measured against recent prices.{% endblock %}
+{% block content %}
+<section class="page-head wrap">
+  <p class="eyebrow">Updated {{ today.strftime('%A %-d %B %Y') }}</p>
+  <h1>Today's coffee gear deals</h1>
+  <p class="lede">Every product on our watchlist is checked against Amazon AU each morning. We only list a discount when it's a genuine drop, and we tell you when a "saving" is measured against an RRP rather than a recent price.</p>
+</section>
+
+{% if live_deals %}
+<section class="section wrap">
+  <div class="section__head"><h2>Price drops right now</h2>{% if price_time %}<span class="stamp">Prices as of {{ price_time }}</span>{% endif %}</div>
+  <div class="grid">{% for p in live_deals %}{{ card(p, price_time, base) }}{% endfor %}</div>
+</section>
+{% endif %}
+
+{% if picks %}
+<section class="section wrap">
+  <div class="section__head"><h2>Hand-picked</h2></div>
+  <div class="picks">{% for pk in picks %}{{ pick_card(pk, price_time) }}{% endfor %}</div>
+</section>
+{% endif %}
+
+{% if recent_droppers %}
+<section class="section {% if live_deals or picks %}section--tint{% endif %}">
+  <div class="wrap">
+    <div class="section__head"><h2>Recently discounted: watch these</h2></div>
+    <p class="lede section__intro">Each of these had a big discount on Amazon AU in the last few months. Products that drop once usually drop again around Black Friday, Boxing Day and Prime events.</p>
+    <div class="grid">{% for p in recent_droppers %}{{ card(p, price_time, base) }}{% endfor %}</div>
+  </div>
+</section>
+{% endif %}
+
+{% if not live_deals and not picks and not recent_droppers %}
+<section class="section wrap">
+  <div class="empty">
+    <p><strong>Nothing worth flagging today.</strong> We'd rather show you nothing than a fake discount. Coffee gear tends to drop hardest around Black Friday, Boxing Day, end of financial year and Amazon's Prime events.</p>
+    <p><a href="{{ base }}/category/machines/">Browse the machines we watch →</a></p>
+  </div>
+</section>
+{% endif %}
+
+{% if newsletter.form_action %}
+<section class="section wrap"><div class="callout">{{ signup(newsletter) }}</div></section>
+{% endif %}
+{% endblock %}

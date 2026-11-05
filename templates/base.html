@@ -1,0 +1,71 @@
+{% from "_macros.html" import signup %}
+<!doctype html>
+<html lang="en-AU">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>{% block title %}{{ site.name }}: {{ site.tagline }}{% endblock %}</title>
+  <meta name="description" content="{% block description %}{{ site.tagline }}. Espresso machines, grinders and accessories, with genuine discounts flagged.{% endblock %}">
+  <link rel="canonical" href="{{ site_url }}{{ page_path if page_path.endswith('/') else '/' + page_path }}">
+  <link rel="alternate" type="application/rss+xml" title="{{ site.name }}" href="{{ base }}/feed.xml">
+  <meta property="og:site_name" content="{{ site.name }}">
+  <meta property="og:title" content="{{ self.title() }}">
+  <meta property="og:description" content="{{ self.description() }}">
+  <meta property="og:type" content="website">
+  <meta name="theme-color" content="#2b1d14">
+  <link rel="icon" href="{{ base }}/static/favicon.svg" type="image/svg+xml">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,500;9..144,700&family=Inter:wght@400;500;600&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="{{ base }}/static/style.css">
+</head>
+<body>
+  {% if is_sample %}
+  <div class="sample-banner">PREVIEW WITH FAKE SAMPLE PRICES: not for publishing</div>
+  {% endif %}
+  <header class="masthead">
+    <div class="wrap masthead__inner">
+      <a class="logo" href="{{ base }}/">
+        <span class="logo__mark" aria-hidden="true"></span>
+        <span class="logo__text">{{ site.name }}</span>
+      </a>
+      <nav class="nav" aria-label="Main">
+        <a href="{{ base }}/deals/" {% if page_path == '/deals/' %}aria-current="page"{% endif %}>Deals</a>
+        <a href="{{ base }}/category/machines/" {% if page_path == '/category/machines/' %}aria-current="page"{% endif %}>Machines</a>
+        <a href="{{ base }}/category/grinders/" {% if page_path == '/category/grinders/' %}aria-current="page"{% endif %}>Grinders</a>
+        <a href="{{ base }}/guides/" {% if page_path.startswith('/guides/') %}aria-current="page"{% endif %}>Guides</a>
+      </nav>
+    </div>
+  </header>
+
+  <main id="main">
+    {% block content %}{% endblock %}
+  </main>
+
+  <footer class="footer">
+    <div class="wrap footer__grid">
+      <div>
+        <p class="footer__brand">{{ site.name }}</p>
+        <p class="footer__tag">{{ site.tagline }}.</p>
+        {{ signup(newsletter, compact=true) }}
+      </div>
+      <nav class="footer__links" aria-label="Footer">
+        <a href="{{ base }}/deals/">Today's deals</a>
+        <a href="{{ base }}/category/machines/">Espresso machines</a>
+        <a href="{{ base }}/category/grinders/">Grinders</a>
+        <a href="{{ base }}/category/pods/">Pod machines</a>
+        <a href="{{ base }}/category/accessories/">Accessories</a>
+        <a href="{{ base }}/guides/">Buying guides</a>
+        <a href="{{ base }}/about/">About &amp; disclosure</a>
+        <a href="{{ base }}/privacy/">Privacy</a>
+        <a href="{{ base }}/feed.xml">RSS</a>
+      </nav>
+    </div>
+    <div class="wrap footer__legal">
+      <p><strong>{{ disclosure }}</strong> Links to Amazon on this site are affiliate links: if you buy through them, we may earn a commission at no extra cost to you.</p>
+      <p>Prices shown come from Amazon and are accurate as of the date and time shown next to them; they're subject to change. Any price and availability information displayed on Amazon at the time of purchase will apply.</p>
+      <p>© {{ year }} {{ site.name }}. Not affiliated with Amazon or any brand listed.</p>
+    </div>
+  </footer>
+</body>
+</html>

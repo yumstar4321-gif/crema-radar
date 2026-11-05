@@ -1,0 +1,33 @@
+# ─────────────────────────────────────────────────────────────
+#  Site settings. Edit these, then rebuild (python scripts/build.py)
+# ─────────────────────────────────────────────────────────────
+
+site:
+  name: "Crema Radar"                       # rename freely
+  tagline: "Home coffee gear deals on Amazon Australia, checked daily"
+  url: "https://yumstar4321-gif.github.io/crema-radar"   # your live address, no trailing slash
+  locale: "en_AU"
+  timezone: "Australia/Sydney"
+  contact_email: ""                         # optional, shown on the About page
+
+amazon:
+  # Your Amazon Associates AU tracking ID. It ends in -22.
+  # Until you have one, links still work but earn nothing.
+  tracking_id: "YOURTAG-22"
+  marketplace: "www.amazon.com.au"
+
+deals:
+  # A product counts as a deal when Amazon's own savings figure is at least this %.
+  min_discount_percent: 12
+  # Amazon "LIST_PRICE" comparisons are often inflated RRPs. When false,
+  # list-price-only discounts need an extra 10 points to qualify.
+  trust_list_price: false
+  # Prices older than this are hidden (Amazon requires 24h max).
+  max_price_age_hours: 23
+
+newsletter:
+  # Paste the "form action" URL from your newsletter tool's embed code.
+  # Leave blank to hide the sign-up form.
+  form_action: ""
+  email_field_name: "email"
+  provider_name: ""                         # e.g. "Buttondown", shown under the form

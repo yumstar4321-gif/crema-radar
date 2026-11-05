@@ -1,0 +1,16 @@
+{% extends "base.html" %}
+{% from "_macros.html" import signup %}
+{% block title %}{{ guide.title }} | {{ site.name }}{% endblock %}
+{% block description %}{{ guide.description }}{% endblock %}
+{% block content %}
+<article class="article wrap">
+  <nav class="crumbs" aria-label="Breadcrumb"><a href="{{ base }}/">Home</a> / <a href="{{ base }}/guides/">Guides</a></nav>
+  <header class="article__head">
+    <h1>{{ guide.title }}</h1>
+    <p class="lede">{{ guide.description }}</p>
+    <p class="eyebrow">{{ guide.date.strftime('%-d %B %Y') }}</p>
+  </header>
+  <div class="prose">{{ guide.html|safe }}</div>
+  {% if newsletter.form_action %}<div class="callout">{{ signup(newsletter) }}</div>{% endif %}
+</article>
+{% endblock %}

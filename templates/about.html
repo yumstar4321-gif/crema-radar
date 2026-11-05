@@ -1,0 +1,20 @@
+{% extends "base.html" %}
+{% block title %}About & disclosure | {{ site.name }}{% endblock %}
+{% block content %}
+<article class="article wrap">
+  <header class="article__head"><h1>About {{ site.name }}</h1></header>
+  <div class="prose">
+    <p>{{ site.name }} tracks home coffee gear on Amazon Australia: espresso machines, grinders, pod machines and accessories. The goal is simple: tell you when something is <em>genuinely</em> cheaper than usual, and stay quiet when it isn't.</p>
+    <h2>How we pick deals</h2>
+    <ul>
+      <li>Every product on our watchlist is checked each morning.</li>
+      <li>A product only counts as a deal when Amazon's own discount is meaningful. Discounts measured against a list price (RRP) need to be bigger before we flag them, because RRPs are often prices nobody pays.</li>
+      <li>We show the time each price was checked. Prices change, sometimes within minutes, so always confirm on Amazon.</li>
+      <li>We note when an item is sold by a third-party seller rather than Amazon AU.</li>
+    </ul>
+    <h2>How we make money</h2>
+    <p><strong>{{ disclosure }}</strong> When you buy through a link on this site, Amazon pays us a small commission. It doesn't change the price you pay, and nobody pays us to include or rank a product.</p>
+    {% if site.contact_email %}<h2>Contact</h2><p><a href="mailto:{{ site.contact_email }}">{{ site.contact_email }}</a></p>{% endif %}
+  </div>
+</article>
+{% endblock %}

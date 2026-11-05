@@ -1,0 +1,175 @@
+# ─────────────────────────────────────────────────────────────
+#  Watchlist: the products the site lists and the daily check watches.
+#
+#  For each product:
+#    id         short unique name used in page addresses (lowercase, dashes)
+#    asin       Amazon AU product code (10 characters). Blank = the button
+#               links to an Amazon AU search instead.
+#    search     what to search on Amazon AU while asin is blank
+#    category   machines | grinders | pods | accessories
+#    blurb      one or two sentences in your own words
+#    last_deal  optional, e.g. "October 2026": when it last had a big
+#               discount on Amazon AU. Shown as "Last big drop" on the site.
+#               Words only, never the price.
+#    image      optional filename in static/products/ for a photo YOU own
+#               or have the brand's permission to use. Never download
+#               images from Amazon (against Amazon's rules). Once the API
+#               is on, Amazon's own image appears automatically.
+#
+#  ASINs marked "(OzBargain)" were taken from Amazon AU deal posts on
+#  OzBargain on the date shown. Open each one on amazon.com.au once to
+#  confirm it's the listing you want (colour, AU stock) before relying on it.
+# ─────────────────────────────────────────────────────────────
+
+# ── Espresso machines ──────────────────────────────────────
+
+- id: breville-barista-express
+  name: "Breville the Barista Express (Charcoal)"
+  brand: Breville
+  category: machines
+  asin: "B09DP4PSX1"            # BES870CHR (OzBargain, 11 Oct 2026)
+  search: "Breville Barista Express BES870"
+  last_deal: "October 2026"
+  blurb: "Semi-automatic espresso machine with a built-in conical burr grinder. The classic first 'proper' machine for a lot of Aussie kitchens."
+
+- id: breville-bambino-plus
+  name: "Breville the Bambino Plus"
+  brand: Breville
+  category: machines
+  asin: "B07KQBV3N6"            # BES500 (OzBargain, May 2026)
+  search: "Breville Bambino Plus BES500"
+  last_deal: "August 2026"
+  blurb: "Compact espresso machine with automatic milk texturing. Pair it with a separate grinder."
+
+- id: breville-dual-boiler
+  name: "Breville the Dual Boiler"
+  brand: Breville
+  category: machines
+  asin: "B072BV6R66"            # BES920BSS (OzBargain, 29 Sep 2026)
+  search: "Breville Dual Boiler BES920"
+  last_deal: "September 2026"
+  blurb: "Two separate boilers, so you can pull a shot and steam milk at the same time. Breville's enthusiast-level machine."
+
+- id: breville-infuser
+  name: "Breville the Infuser"
+  brand: Breville
+  category: machines
+  asin: "B00RFAQXTK"            # Brushed Stainless Steel (OzBargain, 29 Sep 2026)
+  search: "Breville Infuser BES840"
+  last_deal: "September 2026"
+  blurb: "Breville's entry-level manual espresso machine. No built-in grinder, so budget for one."
+
+- id: breville-barista-pro
+  name: "Breville the Barista Pro"
+  brand: Breville
+  category: machines
+  asin: ""
+  search: "Breville Barista Pro BES878"
+  blurb: "Step up from the Express with a faster-heating system and a digital display, still with the grinder built in."
+
+- id: delonghi-rivelia-start
+  name: "De'Longhi Rivelia Start"
+  brand: "De'Longhi"
+  category: machines
+  asin: "B0H8RSRYS5"            # Beige (OzBargain, 20 Oct 2026)
+  search: "De'Longhi Rivelia Start"
+  last_deal: "October 2026"
+  blurb: "Fully automatic bean-to-cup machine from De'Longhi's Rivelia range: grinds, doses and brews at the press of a button."
+
+- id: delonghi-dedica
+  name: "De'Longhi Dedica"
+  brand: "De'Longhi"
+  category: machines
+  asin: ""
+  search: "De'Longhi Dedica EC685"
+  blurb: "Slim manual espresso machine for small benches and tighter budgets."
+
+- id: delonghi-magnifica-s
+  name: "De'Longhi Magnifica S"
+  brand: "De'Longhi"
+  category: machines
+  asin: ""                      # Past "deals" were Amazon UK imports (UK plug). Don't use those.
+  search: "De'Longhi Magnifica S ECAM22110"
+  blurb: "Fully automatic bean-to-cup machine: grinds, tamps and brews at the press of a button."
+
+- id: philips-4400
+  name: "Philips 4400 Series fully automatic"
+  brand: Philips
+  category: machines
+  asin: "B0DZPB5SYX"            # (OzBargain, 30 Sep 2026)
+  search: "Philips 4400 Series fully automatic espresso machine"
+  last_deal: "September 2026"
+  blurb: "Fully automatic bean-to-cup machine from Philips' 4400 Series, aimed at households that want café drinks without learning to tamp."
+
+- id: gaggia-classic-evo-pro
+  name: "Gaggia Classic Evo Pro"
+  brand: Gaggia
+  category: machines
+  asin: ""
+  search: "Gaggia Classic Evo Pro"
+  blurb: "Long-running manual machine with a commercial-size portafilter. Popular with tinkerers who want to learn espresso properly."
+
+- id: sunbeam-mini-barista
+  name: "Sunbeam Mini Barista"
+  brand: Sunbeam
+  category: machines
+  asin: "B088NHQ9YK"            # EM4300S Silver (OzBargain, 29 Sep 2026)
+  search: "Sunbeam Mini Barista EM4300S"
+  last_deal: "September 2026"
+  blurb: "Compact Sunbeam espresso machine for small kitchens and first-time home baristas."
+
+# ── Grinders ───────────────────────────────────────────────
+
+- id: breville-smart-grinder-pro
+  name: "Breville the Smart Grinder Pro"
+  brand: Breville
+  category: grinders
+  asin: "B071F7C193"            # BCG820BSS (OzBargain, 8 Jun 2026)
+  search: "Breville Smart Grinder Pro BCG820"
+  last_deal: "June 2026"
+  blurb: "Electric conical burr grinder with 60 grind settings, covering espresso through to plunger."
+
+- id: baratza-encore-esp
+  name: "Baratza Encore ESP"
+  brand: Baratza
+  category: grinders
+  asin: ""
+  search: "Baratza Encore ESP"
+  blurb: "Entry-level electric burr grinder tuned for espresso, from a brand known for repairable parts."
+
+- id: timemore-c3
+  name: "Timemore Chestnut C3 hand grinder"
+  brand: Timemore
+  category: grinders
+  asin: ""
+  search: "Timemore Chestnut C3"
+  blurb: "Well-regarded budget hand grinder. A cheap way to get fresh, consistent grounds for filter coffee."
+
+# ── Pod machines ───────────────────────────────────────────
+
+- id: nespresso-vertuo-up-aeroccino
+  name: "Nespresso Vertuo Up + Aeroccino bundle"
+  brand: Nespresso
+  category: pods
+  asin: "B0GQBLW7WT"            # Breville, Ink Black (OzBargain, 8 Jul 2026)
+  search: "Nespresso Vertuo Up Aeroccino bundle"
+  last_deal: "July 2026"
+  blurb: "Vertuo pod machine bundled with an Aeroccino milk frother for lattes and cappuccinos at the press of a button."
+
+- id: nespresso-vertuo-pop
+  name: "Nespresso Vertuo Pop"
+  brand: Nespresso
+  category: pods
+  asin: ""
+  search: "Nespresso Vertuo Pop Breville"
+  blurb: "Entry-level Vertuo pod machine. Pods cost more per cup, but it's the least fuss option."
+
+# ── Accessories ────────────────────────────────────────────
+
+- id: timemore-black-mirror-scale
+  name: "Timemore Black Mirror coffee scale"
+  brand: Timemore
+  category: accessories
+  asin: ""
+  search: "Timemore Black Mirror scale"
+  blurb: "A timer scale for weighing doses and shots. The cheapest upgrade that makes the biggest difference."
