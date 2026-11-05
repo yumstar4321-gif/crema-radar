@@ -234,9 +234,16 @@
   brand: Baratza
   category: grinders
   shape: grinder
-  asin: ""
+  asin: "B0CM61Z8ZS"            # ZCG495BLK (OzBargain deal link, 8 Oct 2025)
   search: "Baratza Encore ESP"
+  last_deal: "October 2025"
   blurb: "Entry-level burr grinder for espresso, with repairable parts."
+  sale_history:
+    - date: 2025-10-08
+      price: 274.55
+      source: OzBargain
+      url: https://www.ozbargain.com.au/node/927669
+      note: "Black ZCG495BLK, Prime, delivered"
 
 - id: timemore-c3
   name: "Timemore Chestnut C3 hand grinder"
