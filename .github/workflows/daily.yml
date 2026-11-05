@@ -1,7 +1,11 @@
-# Builds and publishes the site to GitHub Pages:
+# Builds and publishes the site:
 #   • every morning at about 6:40am Sydney time (summer) / 5:40am (winter)
 #   • whenever you push a change (e.g. a new pick or guide)
 #   • when you press "Run workflow" on the Actions tab
+#
+# It publishes by pushing the built site to the `gh-pages` branch, which is
+# what GitHub Pages serves. Don't edit `gh-pages` by hand: it is overwritten
+# on every run.
 #
 # Live Amazon prices switch on automatically once you add the
 # AMAZON_CLIENT_ID and AMAZON_CLIENT_SECRET secrets (needs Creators API access).
@@ -17,24 +21,17 @@ on:
   workflow_dispatch:
 
 permissions:
-  contents: read
-  pages: write
-  id-token: write
+  contents: write
 
 concurrency:
-  group: pages
+  group: publish
   cancel-in-progress: true
 
 jobs:
-  build:
+  publish:
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v4
-
-      - name: Turn on GitHub Pages if it isn't already
-        uses: actions/configure-pages@v5
-        with:
-          enablement: true
 
       - uses: actions/setup-python@v5
         with:
@@ -53,16 +50,14 @@ jobs:
       - name: Build site and run safety checks (stops publishing if anything fails)
         run: python scripts/check.py
 
-      - uses: actions/upload-pages-artifact@v3
-        with:
-          path: site
-
-  deploy:
-    needs: build
-    runs-on: ubuntu-latest
-    environment:
-      name: github-pages
-      url: ${{ steps.deployment.outputs.page_url }}
-    steps:
-      - id: deployment
-        uses: actions/deploy-pages@v4
+      - name: Publish to the gh-pages branch
+        run: |
+          cd site
+          git init -q -b gh-pages
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git add -A
+          git commit -q -m "Publish site: $(date -u '+%Y-%m-%d %H:%M UTC')"
+          git push -q --force \
+            "https://x-access-token:${{ secrets.GITHUB_TOKEN }}@github.com/${{ github.repository }}" \
+            gh-pages
