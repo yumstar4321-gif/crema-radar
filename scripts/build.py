@@ -104,6 +104,25 @@ def prefix_links(body_html: str, base: str) -> str:
     return re.sub(r'href="/(?!/)', f'href="{base}/', body_html)
 
 
+def expand_amazon_links(html: str, product_by_id: dict, cfg: dict) -> str:
+    """Turn [text](amazon:product-id) in a guide into a tagged Amazon link.
+
+    Guides recommend things; without this every recommendation costs the
+    reader two clicks to act on, which is where buyers are lost. The link is
+    built by the same function the product pages use, so it always carries
+    the tracking ID and rel="sponsored".
+    """
+    def sub(m: re.Match) -> str:
+        p = product_by_id.get(m.group(1))
+        if not p:
+            print(f"  ! a guide links to amazon:{m.group(1)}, which is not in products.yaml")
+            return m.group(0)
+        return (f'href="{amazon_link(p, p.get("live"), cfg)}"'
+                f' rel="sponsored nofollow noopener" target="_blank"')
+
+    return re.sub(r'href="amazon:([a-z0-9-]+)"', sub, html)
+
+
 def amazon_link(product: dict, live_item: dict | None, cfg: dict) -> str:
     tag = cfg["amazon"]["tracking_id"]
     host = "https://" + cfg["amazon"]["marketplace"]
@@ -186,6 +205,8 @@ def build(allow_sample: bool = False, local: bool = False) -> None:
             except ValueError:
                 print(f"  ! last_deal for {p['id']} should look like 'October 2026'")
     product_by_id = {p["id"]: p for p in products}
+    for g in guides:
+        g["html"] = expand_amazon_links(g["html"], product_by_id, cfg)
 
     # Products discounted on Amazon AU in roughly the last 4 months: likely to drop again
     recent_droppers = sorted(

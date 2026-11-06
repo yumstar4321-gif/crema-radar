@@ -16,7 +16,7 @@ If your espresso is sour, bitter or inconsistent, the cause is almost always the
 
 Weigh your dose, weigh the shot, watch the clock. A typical starting point is 18g of coffee producing about 36g of espresso in 25 to 30 seconds. Adjust the grinder until you hit it. That single habit fixes more bad coffee than any new machine will.
 
-[See coffee scales →](/product/timemore-black-mirror-scale/)
+[Our pick and its price history →](/product/timemore-black-mirror-scale/) · [Check price on Amazon →](amazon:timemore-black-mirror-scale)
 
 ## 2. A tamper that actually fits
 
@@ -24,7 +24,9 @@ The plastic tamper that came in the box is almost certainly undersized. A tamper
 
 **Check your size before buying.** Breville machines use a **54mm** basket. Gaggia, De'Longhi and most commercial-style machines use **58mm**. Getting this wrong is the most common accessory mistake.
 
-[54mm tamper →](/product/tamper-54mm/) · [58mm tamper →](/product/tamper-58mm/)
+**54mm:** [details →](/product/tamper-54mm/) · [check price on Amazon →](amazon:tamper-54mm)
+
+**58mm:** [details →](/product/tamper-58mm/) · [check price on Amazon →](amazon:tamper-58mm)
 
 ## 3. Cleaning tablets and descaler
 
@@ -32,7 +34,7 @@ Coffee oils go rancid. They coat the group head and the basket, and every shot y
 
 Backflush with cleaning tablets roughly weekly, and descale every two to three months — more often in hard-water areas like Adelaide and Perth. This is also the single best thing you can do for the machine's lifespan, which matters if you ever want to resell it.
 
-[Cleaning tablets →](/product/espresso-cleaning-tablets/) · [Descaler →](/product/descaler/)
+[Cleaning tablets on Amazon →](amazon:espresso-cleaning-tablets) · [Descaler on Amazon →](amazon:descaler)
 
 ## 4. The right size milk jug
 
@@ -40,7 +42,7 @@ If your latte art never works, the jug is a likely culprit. A jug that's too big
 
 For a single flat white, a **350ml** jug is about right. For two drinks, step up to 600ml. Fill to just below the bottom of the spout.
 
-[Milk jugs →](/product/milk-jug-stainless/)
+[Check milk jug prices on Amazon →](amazon:milk-jug-stainless)
 
 ## 5. A WDT tool
 
@@ -48,7 +50,7 @@ A WDT tool is a handful of fine needles on a handle. You stir the dry grounds in
 
 It looks like fussy enthusiast nonsense. It isn't. Clumps cause channelling, channelling causes sour shots, and this is a cheap, ten-second fix.
 
-[WDT tools →](/product/wdt-tool/)
+[Check WDT tool prices on Amazon →](amazon:wdt-tool)
 
 ## 6. Airtight bean storage
 
@@ -56,7 +58,7 @@ Beans start going flat about two weeks after roasting, and faster once air gets 
 
 Buy smaller bags more often, keep them in an airtight canister out of sunlight, and don't put them in the freezer unless you're sealing them in portions.
 
-[Bean canisters →](/product/bean-canister/)
+[Check bean canister prices on Amazon →](amazon:bean-canister)
 
 ## If you want to diagnose rather than guess
 
