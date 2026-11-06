@@ -236,5 +236,16 @@ p { margin: 0 0 1em; }
   .pick { grid-template-columns: 1fr; }
   .pick__media .thumb { aspect-ratio: 16 / 7; min-height: 0; }
   .section { padding: 36px 0; }
+  /* Stacked, the three reassurance cards filled a whole phone screen before
+     the first product. Collapse them to a chip row and drop the sub-lines. */
+  .hero__facts { display: flex; flex-wrap: wrap; gap: 8px; }
+  .hero__facts li { padding: 7px 14px; border-radius: 999px; }
+  .hero__facts strong { font-size: .95rem; }
+  .hero__facts span { display: none; }
+  /* One card per row on a phone, so a tall illustration costs a third of a
+     screen each. Shorter thumb, tighter body: same information, less scroll. */
+  .thumb { aspect-ratio: 16 / 9; }
+  .thumb .ill { width: 46%; height: 82%; }
+  .card__body { padding: 14px 16px; }
 }
 @media (prefers-reduced-motion: reduce) { * { transition: none !important; } }

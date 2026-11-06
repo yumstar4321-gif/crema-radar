@@ -259,9 +259,23 @@ def build(allow_sample: bool = False, local: bool = False) -> None:
     shown = {p["id"] for p in live_deals[:6]} | {pk["p"]["id"] for pk in picks[:6]}
     if not live_deals and not picks:
         shown |= {p["id"] for p in recent_droppers[:6]}
-    featured = [p for p in products if p["category"] in ("machines", "grinders") and p["id"] not in shown][:6]
+    # Products with a recorded price first: a "Not recorded yet" card sitting
+    # beside priced ones reads as missing data rather than as a watchlist.
+    featured = sorted(
+        (p for p in products
+         if p["category"] in ("machines", "grinders") and p["id"] not in shown),
+        key=lambda p: (p.get("best_deal") is None,),
+    )[:4]
+    shown |= {p["id"] for p in featured}
+    # Accessories earn the same commission rate on a far shorter decision, so
+    # they belong on the homepage, not only behind a category link.
+    accessories = sorted(
+        (p for p in products if p["category"] == "accessories" and p["id"] not in shown),
+        key=lambda p: (p.get("best_deal") is None,),
+    )[:4]
     render("index.html", "/", live_deals=live_deals[:6], picks=picks[:6], recent_droppers=recent_droppers[:6],
-           guides=[g for g in guides if g["featured"]][:3] or guides[:3], featured=featured)
+           guides=[g for g in guides if g["featured"]][:3] or guides[:3], featured=featured,
+           accessories=accessories)
     render("deals.html", "/deals/", live_deals=live_deals, picks=picks, recent_droppers=recent_droppers)
     render("guides.html", "/guides/", guides=guides)
     for g in guides:

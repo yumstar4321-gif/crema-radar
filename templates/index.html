@@ -55,6 +55,17 @@
   </div>
 </section>
 
+{% if accessories %}
+<section class="section wrap">
+  <div class="section__head">
+    <h2>Cheaper than a new machine</h2>
+    <a class="more" href="{{ base }}/category/accessories/">All accessories →</a>
+  </div>
+  <p class="lede section__intro">A scale, a tamper that fits and clean group seals will do more for your coffee than most upgrades. <a href="{{ base }}/guides/cheap-upgrades-better-than-a-new-machine/">Here's the case for each one</a>.</p>
+  <div class="grid">{% for p in accessories %}{{ card(p, price_time, base) }}{% endfor %}</div>
+</section>
+{% endif %}
+
 <section class="section wrap">
   <div class="section__head"><h2>When coffee gear actually goes on sale</h2><a class="more" href="{{ base }}/deals/">Today's deals →</a></div>
   {{ sale_calendar(today_month) }}
