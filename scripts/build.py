@@ -305,6 +305,27 @@ def build(allow_sample: bool = False, local: bool = False) -> None:
     (OUT / "robots.txt").write_text(f"User-agent: *\nAllow: /\nSitemap: {site_url}/sitemap.xml\n")
     (OUT / ".nojekyll").write_text("")
 
+    # Crawlers and older browsers that ignore the <link rel="icon"> tags fall
+    # back to /favicon.ico at the site root, so it has to exist there too.
+    ico = ROOT / "static" / "favicon.ico"
+    if ico.is_file():
+        shutil.copyfile(ico, OUT / "favicon.ico")
+    else:
+        print("  ! static/favicon.ico missing — run scripts/make_icons.py")
+
+    (OUT / "site.webmanifest").write_text(json.dumps({
+        "name": cfg["site"]["name"],
+        "short_name": cfg["site"]["name"],
+        "icons": [
+            {"src": f"{base}/static/icon-192.png", "sizes": "192x192", "type": "image/png"},
+            {"src": f"{base}/static/logo-512.png", "sizes": "512x512", "type": "image/png"},
+        ],
+        "theme_color": "#2b1d14",
+        "background_color": "#fbf6ef",
+        "display": "standalone",
+        "start_url": f"{base}/",
+    }, indent=2))
+
     # GitHub Pages reads CNAME from the published branch. The publish force-pushes,
     # so without this the custom domain would be dropped on every run.
     domain = (cfg["site"].get("custom_domain") or "").strip().lstrip("https://").rstrip("/")

@@ -33,12 +33,23 @@
        "name": site.name, "description": site.tagline, "inLanguage": "en-AU",
        "publisher": {"@id": site_url ~ "/#org"}},
       {"@type": "Organization", "@id": site_url ~ "/#org", "name": site.name,
-       "url": site_url ~ "/", "logo": site_url ~ "/static/share.jpg"}
+       "url": site_url ~ "/",
+       "logo": {"@type": "ImageObject", "url": site_url ~ "/static/logo-512.png",
+                "width": 512, "height": 512}}
     ]
   }|tojson }}
   </script>
   {% block schema %}{% endblock %}
+  {# Google picks the favicon for search results from these and from
+     /favicon.ico at the site root. It wants square, 48px or larger, and
+     crawlable. Regenerate with scripts/make_icons.py. #}
+  <link rel="icon" href="{{ base }}/favicon.ico" sizes="32x32">
   <link rel="icon" href="{{ base }}/static/favicon.svg" type="image/svg+xml">
+  <link rel="icon" type="image/png" sizes="48x48" href="{{ base }}/static/favicon-48.png">
+  <link rel="icon" type="image/png" sizes="96x96" href="{{ base }}/static/favicon-96.png">
+  <link rel="icon" type="image/png" sizes="192x192" href="{{ base }}/static/icon-192.png">
+  <link rel="apple-touch-icon" href="{{ base }}/static/apple-touch-icon.png">
+  <link rel="manifest" href="{{ base }}/site.webmanifest">
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,500;9..144,700&family=Inter:wght@400;500;600&display=swap" rel="stylesheet">
