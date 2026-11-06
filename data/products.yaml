@@ -42,9 +42,15 @@
   shape: espresso-grinder
   asin: "B09DP4PSX1"            # BES870CHR (OzBargain, 11 Oct 2026)
   search: "Breville Barista Express BES870"
-  last_deal: "October 2026"
+  last_deal: "November 2026"
   blurb: "Built-in burr grinder. The classic first ‘proper’ machine."
   sale_history:
+    - date: 2026-11-04
+      price: 585
+      was: 999
+      source: OzBargain
+      url: https://www.ozbargain.com.au/node/981537
+      note: "Charcoal, excl. NT"
     - date: 2026-10-11
       price: 588
       was: 999
@@ -287,6 +293,23 @@
       was: 199
       source: TechRadar AU
       url: https://www.techradar.com/home/coffee-machines/all-the-best-coffee-machine-deals-on-amazon-prime-big-deal-days-2026-in-australia
+
+- id: nespresso-creatista-plus
+  name: "Nespresso Creatista Plus by Breville"
+  brand: Nespresso
+  category: pods
+  shape: pod
+  asin: ""
+  search: "Nespresso Creatista Plus Breville BNE800"
+  last_deal: "November 2026"
+  blurb: "A pod machine with a real steam wand, so you texture the milk yourself."
+  sale_history:
+    - date: 2026-11-06
+      price: 599
+      was: 949
+      source: OzBargain
+      url: https://www.ozbargain.com.au/node/981955
+      note: Black
 
 # ── Accessories ────────────────────────────────────────────
 
