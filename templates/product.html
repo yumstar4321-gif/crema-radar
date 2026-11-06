@@ -65,4 +65,17 @@
   <div class="grid">{% for q in related %}{{ card(q, price_time, base) }}{% endfor %}</div>
 </div></section>
 {% endif %}
+
+{# On a phone the buy button sits over a screen down, past the price history.
+   This keeps it reachable the whole way down without moving the evidence
+   above it. Hidden on desktop, where the button is already in view. #}
+<div class="buybar" role="complementary">
+  <div class="buybar__inner">
+    <div class="buybar__text">
+      <strong>{{ p.short_name }}</strong>
+      {% if p.best_deal %}<span>Lowest seen ${{ '{:,.0f}'.format(p.best_deal.price) }} · {{ p.best_deal.when_short }}</span>{% endif %}
+    </div>
+    <a class="btn btn--buy buybar__btn" href="{{ p.link }}" rel="sponsored nofollow noopener" target="_blank">Check price</a>
+  </div>
+</div>
 {% endblock %}

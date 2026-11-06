@@ -69,7 +69,7 @@ See everything we're tracking on the [deals page](/deals/).
 
 If your budget is tight, the best Black Friday purchase is often not a machine.
 
-A [scale with a timer](/product/timemore-black-mirror-scale/), a [tamper that fits your basket](/product/tamper-54mm/), and [cleaning tablets](/product/espresso-cleaning-tablets/) will improve your coffee more than upgrading from a decent machine to a slightly better one. Together they cost less than a tank of petrol. We've written about [the cheap upgrades that beat a new machine](/guides/cheap-upgrades-better-than-a-new-machine/) if you want the full argument.
+A [scale with a timer](amazon:timemore-black-mirror-scale), a [tamper that fits your basket](amazon:tamper-54mm), and [cleaning tablets](amazon:espresso-cleaning-tablets) will improve your coffee more than upgrading from a decent machine to a slightly better one. Together they cost less than a tank of petrol. We've written about [the cheap upgrades that beat a new machine](/guides/cheap-upgrades-better-than-a-new-machine/) if you want the full argument.
 
 Check your tamper size before you buy one: Breville machines use **54mm**, most others use **58mm**. It's the most common mistake people make in a sale.
 
