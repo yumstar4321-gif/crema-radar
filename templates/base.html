@@ -8,6 +8,9 @@
   <meta name="description" content="{% block description %}{{ site.tagline }}. Espresso machines, grinders and accessories, with genuine discounts flagged.{% endblock %}">
   <link rel="canonical" href="{{ site_url }}{{ page_path if page_path.endswith('/') else '/' + page_path }}">
   <link rel="alternate" type="application/rss+xml" title="{{ site.name }}" href="{{ base }}/feed.xml">
+  {% for v in site.verifications or [] %}
+  <meta name="{{ v.name }}" {{ v.get('attr', 'content') }}="{{ v.content }}">
+  {% endfor %}
   <meta property="og:site_name" content="{{ site.name }}">
   <meta property="og:title" content="{{ self.title() }}">
   <meta property="og:description" content="{{ self.description() }}">

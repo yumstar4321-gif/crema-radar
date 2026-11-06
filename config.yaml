@@ -10,6 +10,14 @@ site:
   # change url above to "https://yourdomain". The build writes a CNAME file so
   # GitHub Pages keeps the domain through every automated publish.
   custom_domain: "cremaradar.au"
+  # Ownership-verification meta tags from affiliate networks and search
+  # engines. They render into every page's <head>. Most networks use
+  # content="..."; Impact uses value="...", so the attribute is spelled out
+  # per entry. Paste the network's tag exactly as they give it to you.
+  verifications:
+    - name: "impact-site-verification"
+      attr: "value"
+      content: "1557cc82-e27a-4893-b0de-1f4c8e557569"
   locale: "en_AU"
   timezone: "Australia/Sydney"
   contact_email: ""                         # optional, shown on the About page
