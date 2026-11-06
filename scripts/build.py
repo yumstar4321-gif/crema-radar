@@ -17,7 +17,7 @@ import json
 import re
 import shutil
 import sys
-from datetime import date, datetime, timezone
+from datetime import date, datetime, timedelta, timezone
 from email.utils import format_datetime
 from pathlib import Path
 from urllib.parse import quote_plus, urlparse
@@ -102,6 +102,35 @@ def to_date(v) -> date:
 def prefix_links(body_html: str, base: str) -> str:
     """Make root-relative links in Markdown work when hosted under a sub-path."""
     return re.sub(r'href="/(?!/)', f'href="{base}/', body_html)
+
+
+def black_friday_context(today: date) -> dict:
+    """Dates for the Black Friday page, worked out rather than hardcoded.
+
+    Black Friday is the day after the fourth Thursday of November, so it
+    moves every year. Once this year's Cyber Monday has passed the page
+    rolls forward to next year's, which keeps the URL worth linking to
+    instead of going stale every December.
+    """
+    def bf_for(year: int) -> date:
+        thursdays = [d for i in range(1, 31)
+                     if (d := date(year, 11, i)).weekday() == 3]
+        return thursdays[3] + timedelta(days=1)
+
+    bf = bf_for(today.year)
+    if today > bf + timedelta(days=3):          # past Cyber Monday: next year
+        bf = bf_for(today.year + 1)
+    cyber = bf + timedelta(days=3)
+    return {
+        "year": bf.year,
+        "date": bf,
+        "cyber": cyber,
+        "days_until": (bf - today).days,
+        # The sale period in practice, not just the Friday.
+        "live": bf - timedelta(days=7) <= today <= cyber,
+        # Whether the masthead should carry a link to it.
+        "in_season": bf - timedelta(days=45) <= today <= cyber + timedelta(days=5),
+    }
 
 
 def expand_amazon_links(html: str, product_by_id: dict, cfg: dict) -> str:
@@ -257,7 +286,7 @@ def build(allow_sample: bool = False, local: bool = False) -> None:
     env.globals["meta_title"] = meta_title
     common = dict(
         cfg=cfg, site=cfg["site"], base=base, site_url=site_url, year=today.year,
-        today=today, price_time=price_time, is_sample=is_sample,
+        today=today, price_time=price_time, is_sample=is_sample, bf=black_friday_context(today),
         categories=CATEGORIES, newsletter=cfg.get("newsletter", {}), today_month=today.month,
         disclosure="As an Amazon Associate I earn from qualifying purchases.",
     )
@@ -298,6 +327,9 @@ def build(allow_sample: bool = False, local: bool = False) -> None:
            guides=[g for g in guides if g["featured"]][:3] or guides[:3], featured=featured,
            accessories=accessories)
     render("deals.html", "/deals/", live_deals=live_deals, picks=picks, recent_droppers=recent_droppers)
+    # A permanent URL, reused every year, so links to it keep their value.
+    render("black_friday.html", "/black-friday/", live_deals=live_deals, picks=picks,
+           recent_droppers=recent_droppers, accessories=accessories)
     render("guides.html", "/guides/", guides=guides)
     for g in guides:
         render("guide.html", f"/guides/{g['slug']}/", guide=g)

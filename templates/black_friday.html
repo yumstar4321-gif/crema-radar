@@ -1,0 +1,79 @@
+{% extends "base.html" %}
+{% from "_macros.html" import card, pick_card, signup, sale_calendar %}
+{% block title %}{{ meta_title("Black Friday Coffee Deals Australia " ~ bf.year) }}{% endblock %}
+{% block description %}Live Black Friday coffee machine deals on Amazon Australia, checked every morning and measured against what each model has actually sold for before.{% endblock %}
+{% block content %}
+
+<section class="bfhero">
+  <div class="wrap">
+    <p class="eyebrow eyebrow--light">Amazon Australia · updated {{ today.strftime('%A %-d %B') }}</p>
+    <h1>Black Friday coffee deals, <em>checked against real prices.</em></h1>
+    <p class="hero__lede">Black Friday is {{ bf.date.strftime('%A %-d %B') }} and Cyber Monday is {{ bf.cyber.strftime('%A %-d %B') }}. We check every machine on our watchlist each morning and list a discount only when it beats what that model has genuinely sold for before &mdash; not its RRP.</p>
+    {% if bf.days_until > 0 %}
+    <p class="bfhero__count"><strong>{{ bf.days_until }}</strong> day{{ '' if bf.days_until == 1 else 's' }} until Black Friday</p>
+    {% elif bf.live %}
+    <p class="bfhero__count bfhero__count--live">Black Friday is live now</p>
+    {% else %}
+    <p class="bfhero__count">Black Friday {{ bf.year }} has finished. Here's what dropped, and what to watch next.</p>
+    {% endif %}
+  </div>
+</section>
+
+{% if live_deals %}
+<section class="section wrap">
+  <div class="section__head"><h2>Price drops right now</h2>{% if price_time %}<span class="stamp">Prices as of {{ price_time }}</span>{% endif %}</div>
+  <div class="grid">{% for p in live_deals %}{{ card(p, price_time, base) }}{% endfor %}</div>
+</section>
+{% endif %}
+
+{% if picks %}
+<section class="section wrap">
+  <div class="section__head"><h2>What we've flagged today</h2></div>
+  <div class="picks">{% for pk in picks %}{{ pick_card(pk, price_time) }}{% endfor %}</div>
+</section>
+{% endif %}
+
+{% if not live_deals and not picks %}
+<section class="section wrap">
+  <div class="empty">
+    <p><strong>{% if bf.days_until > 0 %}The real discounting hasn't started yet.{% else %}Nothing worth flagging right now.{% endif %}</strong>
+    Australian retailers usually begin in the week of the 23rd, and the deepest cuts tend to land mid-week rather than on the Friday itself. We check every morning and this page updates itself; the watchlist below is what we expect to move.</p>
+  </div>
+</section>
+{% endif %}
+
+{% if recent_droppers %}
+<section class="section section--tint">
+  <div class="wrap">
+    <div class="section__head"><h2>The watchlist</h2><a class="more" href="{{ base }}/category/machines/">All machines →</a></div>
+    <p class="lede section__intro">Each of these had a genuine discount on Amazon AU in the last few months, with the date and source on its page. Products that drop once usually drop again, so these are the ones worth watching this month.</p>
+    <div class="grid">{% for p in recent_droppers %}{{ card(p, price_time, base) }}{% endfor %}</div>
+  </div>
+</section>
+{% endif %}
+
+{% if accessories %}
+<section class="section wrap">
+  <div class="section__head"><h2>The cheap wins</h2><a class="more" href="{{ base }}/category/accessories/">All accessories →</a></div>
+  <p class="lede section__intro">If the machine you want doesn't drop, these will improve your coffee more than upgrading it would. <a href="{{ base }}/guides/cheap-upgrades-better-than-a-new-machine/">Here's the case for each</a>.</p>
+  <div class="grid">{% for p in accessories %}{{ card(p, price_time, base) }}{% endfor %}</div>
+</section>
+{% endif %}
+
+<section class="section wrap">
+  <div class="section__head"><h2>When the discounts actually land</h2></div>
+  {{ sale_calendar(today_month) }}
+</section>
+
+<section class="section wrap">
+  <div class="callout">
+    <h2>Before you buy anything this month</h2>
+    <p>The commonest trick is a "was" price nobody has paid in years: a machine sits below its RRP all year, then November arrives and the listing starts comparing against the RRP instead. Nothing changes except the badge.</p>
+    <p><a href="{{ base }}/guides/black-friday-coffee-machine-deals-australia/">Read the full Black Friday guide →</a> · <a href="{{ base }}/guides/how-to-spot-a-real-coffee-machine-deal/">How to spot a real deal →</a></p>
+  </div>
+</section>
+
+{% if newsletter.form_action %}
+<section class="section wrap"><div class="callout">{{ signup(newsletter) }}</div></section>
+{% endif %}
+{% endblock %}

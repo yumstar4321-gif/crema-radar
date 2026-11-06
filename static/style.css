@@ -248,6 +248,18 @@ p { margin: 0 0 1em; }
   .thumb .ill { width: 46%; height: 82%; }
   .card__body { padding: 14px 16px; }
 }
+/* Seasonal nav link and the Black Friday landing page */
+.nav__hot { color: var(--crema) !important; font-weight: 600 !important; }
+.nav__hot:hover, .nav__hot[aria-current] { background: rgba(201, 138, 75, .18) !important; color: #f0c08a !important; }
+.bfhero { background: linear-gradient(160deg, var(--bean), var(--roast)); color: #fff; padding: clamp(36px, 7vw, 72px) 0; }
+.bfhero h1 { color: #fff; max-width: 18ch; }
+.bfhero h1 em { font-style: italic; color: var(--crema); }
+.bfhero .hero__lede { margin-top: 14px; max-width: 62ch; }
+.bfhero__count { margin-top: 22px; display: inline-block; padding: 10px 18px; border-radius: 999px;
+  background: rgba(255, 255, 255, .1); border: 1px solid rgba(201, 138, 75, .5); color: #f3eadf; font-size: .98rem; }
+.bfhero__count strong { color: var(--crema); font-size: 1.3rem; font-family: var(--serif); }
+.bfhero__count--live { background: var(--crema); border-color: var(--crema); color: var(--bean); font-weight: 600; }
+
 /* Sticky buy bar: phones only. Desktop already shows the button on load. */
 .buybar { display: none; }
 @media (max-width: 820px) {

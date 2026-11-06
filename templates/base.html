@@ -70,6 +70,9 @@
       </a>
       <nav class="nav" aria-label="Main">
         <a href="{{ base }}/deals/" {% if page_path == '/deals/' %}aria-current="page"{% endif %}>Deals</a>
+        {% if bf.in_season %}
+        <a class="nav__hot" href="{{ base }}/black-friday/" {% if page_path == '/black-friday/' %}aria-current="page"{% endif %}>Black Friday</a>
+        {% endif %}
         <a href="{{ base }}/category/machines/" {% if page_path == '/category/machines/' %}aria-current="page"{% endif %}>Machines</a>
         <a href="{{ base }}/category/grinders/" {% if page_path == '/category/grinders/' %}aria-current="page"{% endif %}>Grinders</a>
         <a href="{{ base }}/guides/" {% if page_path.startswith('/guides/') %}aria-current="page"{% endif %}>Guides</a>
