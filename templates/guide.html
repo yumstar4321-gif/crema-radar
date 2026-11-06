@@ -1,6 +1,6 @@
 {% extends "base.html" %}
 {% from "_macros.html" import signup %}
-{% block title %}{{ guide.title }} | {{ site.name }}{% endblock %}
+{% block title %}{{ meta_title(guide.seo_title) }}{% endblock %}
 {% block description %}{{ guide.description }}{% endblock %}
 {% block og_type %}article{% endblock %}
 {% block schema %}

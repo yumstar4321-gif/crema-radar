@@ -1,5 +1,6 @@
 ---
 title: "Six cheap upgrades that beat buying a new coffee machine"
+seo_title: "Six Cheap Coffee Upgrades That Beat a New Machine"
 description: "Before you spend hundreds on a new espresso machine, these inexpensive fixes will improve your coffee more. Most cost under $40 in Australia."
 date: 2026-11-06
 featured: true

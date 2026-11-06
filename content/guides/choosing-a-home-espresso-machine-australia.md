@@ -1,5 +1,6 @@
 ---
 title: "Pods, manual or bean-to-cup? Choosing a home coffee machine in Australia"
+seo_title: "How to Choose a Home Coffee Machine in Australia"
 description: "A plain-English guide to the three types of home coffee machine, who each suits, and what to budget for beyond the machine itself."
 date: 2026-11-04
 featured: true

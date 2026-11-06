@@ -1,6 +1,7 @@
 ---
 title: "Black Friday coffee machine deals in Australia: what to expect in 2026"
-description: "Black Friday falls on 27 November 2026 and Cyber Monday on 30 November. Here's which home coffee gear actually drops in price in Australia, when the discounts appear, and how to tell a real one from an inflated RRP."
+seo_title: "Black Friday Coffee Machine Deals Australia 2026"
+description: "Black Friday is 27 November 2026. Which coffee gear actually drops in price in Australia, when the real discounts land, and how to spot a fake RRP."
 date: 2026-11-06
 featured: true
 ---

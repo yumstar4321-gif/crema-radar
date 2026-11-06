@@ -63,6 +63,9 @@ def load_guides(base: str) -> list[dict]:
         guides.append({
             "slug": f.stem,
             "title": meta.get("title", f.stem.replace("-", " ").title()),
+            # Optional: a shorter, search-facing title when the headline on the
+            # page is too long for a search result. Falls back to the headline.
+            "seo_title": meta.get("seo_title") or meta.get("title", f.stem),
             "description": meta.get("description", ""),
             "date": to_date(meta.get("date")),
             "featured": bool(meta.get("featured")),
@@ -170,6 +173,9 @@ def build(allow_sample: bool = False, local: bool = False) -> None:
                          "when_short": d.strftime("%b %Y")})
         hist.sort(key=lambda h: h["date"], reverse=True)
         p["sale_history"] = hist
+        # Colour and variant suffixes push <title> past the ~60 characters a
+        # search result shows. They stay in the H1, out of the title.
+        p["short_name"] = re.sub(r"\s*\([^)]*\)", "", p["name"]).strip()
         p["best_deal"] = min(hist, key=lambda h: h["price"]) if hist else None
 
         # When it last had a big discount, e.g. "October 2026"
@@ -215,6 +221,19 @@ def build(allow_sample: bool = False, local: bool = False) -> None:
         autoescape=select_autoescape(["html", "xml"]),
         trim_blocks=True, lstrip_blocks=True,
     )
+
+    def meta_title(core: str, limit: int = 60) -> str:
+        """Page title for <title>, with the brand appended only if it fits.
+
+        Google truncates search-result titles at roughly 60 characters, and a
+        truncated title loses the words that earn the click. The brand is the
+        least useful part, so it is the part that goes.
+        """
+        core = " ".join(str(core).split())
+        full = f"{core} | {cfg['site']['name']}"
+        return full if len(full) <= limit else core
+
+    env.globals["meta_title"] = meta_title
     common = dict(
         cfg=cfg, site=cfg["site"], base=base, site_url=site_url, year=today.year,
         today=today, price_time=price_time, is_sample=is_sample,

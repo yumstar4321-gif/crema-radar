@@ -1,5 +1,6 @@
 ---
 title: "How to tell if a coffee machine 'sale' is actually a deal"
+seo_title: "Is That Coffee Machine Sale Actually a Deal?"
 description: "Strikethrough prices, inflated RRPs and lightning deals: a practical checklist for buying an espresso machine on sale in Australia."
 date: 2026-11-04
 featured: true

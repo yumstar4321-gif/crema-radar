@@ -4,7 +4,7 @@
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <title>{% block title %}{{ site.name }}: {{ site.tagline }}{% endblock %}</title>
+  <title>{% block title %}{{ meta_title("Coffee machine deals on Amazon Australia") }}{% endblock %}</title>
   <meta name="description" content="{% block description %}{{ site.tagline }}. Espresso machines, grinders and accessories, with genuine discounts flagged.{% endblock %}">
   <link rel="canonical" href="{{ site_url }}{{ page_path if page_path.endswith('/') else '/' + page_path }}">
   <link rel="alternate" type="application/rss+xml" title="{{ site.name }}" href="{{ base }}/feed.xml">
