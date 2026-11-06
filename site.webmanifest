@@ -1,0 +1,20 @@
+{
+  "name": "Crema Radar",
+  "short_name": "Crema Radar",
+  "icons": [
+    {
+      "src": "/static/icon-192.png",
+      "sizes": "192x192",
+      "type": "image/png"
+    },
+    {
+      "src": "/static/logo-512.png",
+      "sizes": "512x512",
+      "type": "image/png"
+    }
+  ],
+  "theme_color": "#2b1d14",
+  "background_color": "#fbf6ef",
+  "display": "standalone",
+  "start_url": "/"
+}
