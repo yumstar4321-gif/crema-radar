@@ -2,6 +2,35 @@
 {% from "_macros.html" import signup %}
 {% block title %}{{ guide.title }} | {{ site.name }}{% endblock %}
 {% block description %}{{ guide.description }}{% endblock %}
+{% block og_type %}article{% endblock %}
+{% block schema %}
+<script type="application/ld+json">
+{{ {
+  "@context": "https://schema.org",
+  "@type": "Article",
+  "headline": guide.title,
+  "description": guide.description,
+  "datePublished": guide.date.isoformat(),
+  "dateModified": guide.date.isoformat(),
+  "inLanguage": "en-AU",
+  "image": site_url ~ "/static/share.jpg",
+  "mainEntityOfPage": site_url ~ "/guides/" ~ guide.slug ~ "/",
+  "author": {"@type": "Organization", "name": site.name, "url": site_url ~ "/"},
+  "publisher": {"@id": site_url ~ "/#org"}
+}|tojson }}
+</script>
+<script type="application/ld+json">
+{{ {
+  "@context": "https://schema.org",
+  "@type": "BreadcrumbList",
+  "itemListElement": [
+    {"@type": "ListItem", "position": 1, "name": "Home", "item": site_url ~ "/"},
+    {"@type": "ListItem", "position": 2, "name": "Guides", "item": site_url ~ "/guides/"},
+    {"@type": "ListItem", "position": 3, "name": guide.title}
+  ]
+}|tojson }}
+</script>
+{% endblock %}
 {% block content %}
 <article class="article wrap">
   <nav class="crumbs" aria-label="Breadcrumb"><a href="{{ base }}/">Home</a> / <a href="{{ base }}/guides/">Guides</a></nav>

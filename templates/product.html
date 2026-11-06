@@ -2,6 +2,22 @@
 {% from "_macros.html" import thumb, price_box, card, signup, history_panel, price_hero %}
 {% block title %}{{ p.name }} price & deals in Australia | {{ site.name }}{% endblock %}
 {% block description %}Is the {{ p.name }} on sale at Amazon AU? {{ p.blurb }}{% endblock %}
+{# No Product schema here on purpose: it expects an offer price, and Amazon
+   prices may only be shown from its API. Breadcrumbs only. #}
+{% block schema %}
+<script type="application/ld+json">
+{{ {
+  "@context": "https://schema.org",
+  "@type": "BreadcrumbList",
+  "itemListElement": [
+    {"@type": "ListItem", "position": 1, "name": "Home", "item": site_url ~ "/"},
+    {"@type": "ListItem", "position": 2, "name": p.category_name,
+     "item": site_url ~ "/category/" ~ p.category ~ "/"},
+    {"@type": "ListItem", "position": 3, "name": p.name}
+  ]
+}|tojson }}
+</script>
+{% endblock %}
 {% block content %}
 <section class="product wrap">
   <nav class="crumbs" aria-label="Breadcrumb"><a href="{{ base }}/">Home</a> / <a href="{{ base }}/category/{{ p.category }}/">{{ p.category_name }}</a></nav>

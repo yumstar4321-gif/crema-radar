@@ -1,0 +1,47 @@
+<!doctype html>
+<html><head><meta charset="utf-8"><style>
+  * { margin:0; padding:0; box-sizing:border-box; }
+  html,body { width:1200px; height:630px; }
+  body {
+    background: linear-gradient(160deg, #2b1d14 0%, #4a3020 100%);
+    color:#fff; font-family:"Inter",sans-serif;
+    padding:72px 80px; display:flex; flex-direction:column; justify-content:space-between;
+    position:relative; overflow:hidden;
+  }
+  .rings { position:absolute; right:-150px; top:50%; transform:translateY(-50%); width:620px; height:620px; }
+  .rings circle { fill:none; stroke:#c98a4b; }
+  .brand { display:flex; align-items:center; gap:18px; position:relative; }
+  .mark { width:46px; height:46px; border-radius:50%;
+    background: radial-gradient(circle at 50% 50%, #c98a4b 0 38%, #4a3020 40% 60%, #c98a4b 62% 66%, transparent 68%);
+    box-shadow: 0 0 0 3px #c98a4b; }
+  .wordmark { font-family:"Bitstream Charter",serif; font-size:40px; font-weight:700; letter-spacing:-.01em; }
+  h1 { font-family:"Bitstream Charter",serif; font-size:76px; line-height:1.04; font-weight:700;
+       max-width:15ch; letter-spacing:-.02em; position:relative; }
+  h1 em { font-style:italic; color:#c98a4b; }
+  .lede { color:#eadbc9; font-size:27px; margin-top:26px; max-width:30ch; line-height:1.4; position:relative; }
+  .foot { display:flex; align-items:center; gap:14px; position:relative; }
+  .pill { background:rgba(255,255,255,.12); border:1px solid rgba(201,138,75,.5);
+          color:#f3eadf; font-size:21px; font-weight:500; padding:11px 22px; border-radius:999px; }
+  .url { margin-left:auto; color:#c98a4b; font-size:24px; font-weight:600; letter-spacing:.01em; }
+</style></head>
+<body>
+  <svg class="rings" viewBox="0 0 620 620">
+    <circle cx="310" cy="310" r="300" stroke-width="2" opacity=".16"/>
+    <circle cx="310" cy="310" r="232" stroke-width="2" opacity=".22"/>
+    <circle cx="310" cy="310" r="164" stroke-width="2" opacity=".28"/>
+    <circle cx="310" cy="310" r="96"  stroke-width="2" opacity=".36"/>
+    <circle cx="310" cy="310" r="34" fill="#c98a4b" opacity=".5" stroke="none"/>
+  </svg>
+
+  <div class="brand"><div class="mark"></div><div class="wordmark">Crema Radar</div></div>
+
+  <div>
+    <h1>Better coffee at home, <em>for less.</em></h1>
+    <p class="lede">Espresso machines, grinders and gear on Amazon Australia — checked every morning.</p>
+  </div>
+
+  <div class="foot">
+    <span class="pill">Real discounts, not inflated RRPs</span>
+    <span class="url">cremaradar.au</span>
+  </div>
+</body></html>
