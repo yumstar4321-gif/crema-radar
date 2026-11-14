@@ -1,0 +1,39 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom" xmlns:content="http://purl.org/rss/1.0/modules/content/">
+<channel>
+  <title>Crema Radar</title>
+  <link>https://cremaradar.au/</link>
+  <atom:link href="https://cremaradar.au/feed.xml" rel="self" type="application/rss+xml"/>
+  <description>Home coffee gear deals on Amazon Australia, checked daily</description>
+  <language>en-au</language>
+  <lastBuildDate>Sat, 14 Nov 2026 00:27:38 +0000</lastBuildDate>
+  <item>
+    <title>Black Friday coffee machine deals in Australia: what to expect in 2026</title>
+    <link>https://cremaradar.au/guides/black-friday-coffee-machine-deals-australia/</link>
+    <guid isPermaLink="false">https://cremaradar.au/guides/black-friday-coffee-machine-deals-australia/</guid>
+    <pubDate>Fri, 06 Nov 2026 00:00:00 +1100</pubDate>
+    <description>&lt;p&gt;Black Friday is 27 November 2026. Which coffee gear actually drops in price in Australia, when the real discounts land, and how to spot a fake RRP.&lt;/p&gt;</description>
+  </item>
+  <item>
+    <title>Six cheap upgrades that beat buying a new coffee machine</title>
+    <link>https://cremaradar.au/guides/cheap-upgrades-better-than-a-new-machine/</link>
+    <guid isPermaLink="false">https://cremaradar.au/guides/cheap-upgrades-better-than-a-new-machine/</guid>
+    <pubDate>Fri, 06 Nov 2026 00:00:00 +1100</pubDate>
+    <description>&lt;p&gt;Before you spend hundreds on a new espresso machine, these inexpensive fixes will improve your coffee more. Most cost under $40 in Australia.&lt;/p&gt;</description>
+  </item>
+  <item>
+    <title>Pods, manual or bean-to-cup? Choosing a home coffee machine in Australia</title>
+    <link>https://cremaradar.au/guides/choosing-a-home-espresso-machine-australia/</link>
+    <guid isPermaLink="false">https://cremaradar.au/guides/choosing-a-home-espresso-machine-australia/</guid>
+    <pubDate>Wed, 04 Nov 2026 00:00:00 +1100</pubDate>
+    <description>&lt;p&gt;A plain-English guide to the three types of home coffee machine, who each suits, and what to budget for beyond the machine itself.&lt;/p&gt;</description>
+  </item>
+  <item>
+    <title>How to tell if a coffee machine &#39;sale&#39; is actually a deal</title>
+    <link>https://cremaradar.au/guides/how-to-spot-a-real-coffee-machine-deal/</link>
+    <guid isPermaLink="false">https://cremaradar.au/guides/how-to-spot-a-real-coffee-machine-deal/</guid>
+    <pubDate>Wed, 04 Nov 2026 00:00:00 +1100</pubDate>
+    <description>&lt;p&gt;Strikethrough prices, inflated RRPs and lightning deals: a practical checklist for buying an espresso machine on sale in Australia.&lt;/p&gt;</description>
+  </item>
+</channel>
+</rss>
